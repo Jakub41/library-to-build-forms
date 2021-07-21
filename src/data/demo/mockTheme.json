@@ -1,0 +1,38 @@
+{
+  "themeColor": "#328917",
+  "mainHeading": {
+    "color": "rgba(0,0,0,0.75)",
+    "font": "Arial",
+    "bold": false,
+    "italic": false,
+    "underline": false
+  },
+  "subHeading": {
+    "color": "rgba(0,0,0,0.75)",
+    "font": "Arial",
+    "bold": false,
+    "italic": false,
+    "underline": false
+  },
+  "bodyText": {
+    "color": "rgba(0, 0, 0, 0.86)",
+    "font": "Calibri",
+    "bold": false,
+    "italic": false,
+    "underline": false
+  },
+  "primaryButton": {
+    "color": "#0C91E9",
+    "font": "Open Sans",
+    "bold": false,
+    "italic": false,
+    "underline": false
+  },
+  "secondaryButton": {
+    "color": "#0C91E9",
+    "font": "Open Sans",
+    "bold": false,
+    "italic": false,
+    "underline": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "themeColor": "#0C91E9",
+  "formHeading": {
+    "fontFamily": "Poppins",
+    "fontWeight": 500,
+    "italic": false,
+    "underline": false
+  },
+  "pageHeading": {
+    "fontFamily": "Open Sans",
+    "fontWeight": 600,
+    "italic": false,
+    "underline": false
+  },
+  "blockHeading": {
+    "fontFamily": "Open Sans",
+    "fontWeight": 600,
+    "italic": false,
+    "underline": false
+  },
+  "bodyText": {
+    "fontFamily": "Poppins",
+    "fontWeight": 400,
+    "italic": false,
+    "underline": false
+  },
+  "button": {
+    "fontFamily": "Open Sans",
+    "fontWeight": 700,
+    "italic": false,
+    "underline": false
+  }
+}

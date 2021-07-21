@@ -1,0 +1,80 @@
+{
+  "title": "Demo Questionnaire Header",
+  "body": "This is the body text of the questionnaire heading. It can be long, making this page scrolling. That's ok, the CTA can sit below the fold if necessary.",
+  "pages": [
+    {
+      "key": "text-preview",
+      "title": "Text Preview",
+      "body": "This could be markdown",
+      "sortOrder": 0,
+      "blocks": [
+        {
+          "key": "this-is-an-example-of-a-text-block",
+          "title": "This is an example of a text block",
+          "body": "This is a descriptive text of the text block",
+          "sortOrder": 0,
+          "items": [],
+          "type": "textblock"
+        }
+      ]
+    },
+    {
+      "key": "introduction-to-the-study-example-ryan",
+      "title": "Image Preview",
+      "body": "This is a longer description of a an image",
+      "sortOrder": 1,
+      "blocks": [
+        {
+          "key": "thats-an-image",
+          "title": "That's an image",
+          "body": "This is the **markdown** description!",
+          "type": "image",
+          "sortOrder": 0,
+          "items": [
+            {
+              "source": "https://i.picsum.photos/id/142/640/480.jpg?hmac=mgXn_JaEPbpXQ93zQtu9OvU29M0vfpIvd2S31acFdNY"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "video-preview",
+      "title": "Video Preview",
+      "body": "This is the page with video",
+      "sortOrder": 2,
+      "blocks": [
+        {
+          "title": "Video Title",
+          "body": "Some Body text",
+          "sortOrder": 0,
+          "items": [
+            {
+              "source": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            }
+          ],
+          "type": "video"
+        }
+      ]
+    },
+    {
+      "key": "signature",
+      "title": "Signature",
+      "body": "Markdown goes here",
+      "sortOrder": 6,
+      "blocks": [
+        {
+          "key": "Is-this-the-first-time-you-have-purchased-voltaren-emulgel-for-this-condition-in-the-last-12-months?",
+          "title": "Is this the first time you have purchased Voltaren Emulgel for this condition in the last 12 months?",
+          "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+          "sortOrder": 0,
+          "type": "signature",
+          "recipient": { "role": "CONSENTEE", "id": "someIdHere" },
+          "options": {
+            "forceLandscapeMode": true
+          }
+        }
+      ]
+    }
+  ]
+}

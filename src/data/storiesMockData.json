@@ -1,0 +1,162 @@
+[
+  {
+    "key": "free-text-0",
+    "titleWithExplanations": "Let us know how you feel",
+    "bodyWithExplanations": "Dummy text with **bold** and *italic* style",
+    "sortOrder": 0,
+    "type": "text",
+    "options": {}
+  },
+  {
+    "key": "yes-no-1",
+    "titleWithExplanations": "Are you happy?",
+    "bodyWithExplanations": "Dummy text with **bold** and *italic* style",
+    "sortOrder": 1,
+    "options": {
+      "trueValue": "Positive",
+      "falseValue": "Negative",
+      "trueValueIsMandatory": "false",
+      "falseValueIsMandatory": "false"
+    },
+    "type": "yesno"
+  },
+  {
+    "key": "multi-select-2",
+    "titleWithExplanations": "Favorite item",
+    "bodyWithExplanations": "Dummy text with **bold** and *italic* style",
+    "sortOrder": 2,
+    "options": {
+      "allowFreeText": true
+    },
+    "items": [
+      { "key": "item-1", "valueWithExplanations": "item 1", "isMandatory": false },
+      { "key": "item-2", "valueWithExplanations": "item 2", "isMandatory": false },
+      { "key": "item-3", "valueWithExplanations": "item 3", "isMandatory": false }
+    ],
+    "type": "multiselect"
+  },
+  {
+    "key": "single-select-3",
+    "titleWithExplanations": "Favorite letter",
+    "bodyWithExplanations": "Dummy text with **bold** and *italic* style",
+    "sortOrder": 3,
+    "options": {
+      "allowFreeText": true
+    },
+    "items": [
+      { "key": "item-a", "valueWithExplanations": "item A", "isMandatory": false },
+      { "key": "item-b", "valueWithExplanations": "item B", "isMandatory": false },
+      { "key": "item-c", "valueWithExplanations": "item C", "isMandatory": false }
+    ],
+    "type": "singleselect"
+  },
+  {
+    "key": "drop-down-4",
+    "titleWithExplanations": "Your gender",
+    "bodyWithExplanations": "Lorem Ipsum is **simply dummy** text of the *printing and typesetting* industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "sortOrder": 4,
+    "type": "dropdown",
+    "items": [
+      { "key": "m", "valueWithExplanations": "male", "isMandatory": false },
+      { "key": "f", "valueWithExplanations": "female", "isMandatory": false },
+      { "key": "x", "valueWithExplanations": "other", "isMandatory": false }
+    ]
+  },
+  {
+    "key": "number-5",
+    "titleWithExplanations": "Your age",
+    "bodyWithExplanations": "Dummy text with **bold** and *italic* style",
+    "sortOrder": 5,
+    "options": {
+      "minValue": "3",
+      "maxValue": "100"
+    },
+    "type": "number"
+  },
+  {
+    "key": "scale-6",
+    "titleWithExplanations": "How many days a week do you drink alcohol?",
+    "bodyWithExplanations": "Dummy text with **bold** and *italic* style",
+    "sortOrder": 6,
+    "options": {
+      "minValue": 0,
+      "maxValue": 7,
+      "minValueText": "Never",
+      "maxValueText": "Every day"
+    },
+    "type": "scale"
+  },
+  {
+    "key": "textblock-7",
+    "titleWithExplanations": "Is this the first time you have purchased Voltaren Emulgel for this condition in the last 12 months?",
+    "bodyWithExplanations": "Dummy text with **bold** and *italic* style",
+    "sortOrder": 7,
+    "type": "textblock"
+  },
+  {
+    "key": "Is-this-the-first-time-you-have-purchased-voltaren-emulgel-for-this-condition-in-the-last-12-months?",
+    "titleWithExplanations": "Is this the first time you have purchased Voltaren Emulgel for this condition in the last 12 months?",
+    "bodyWithExplanations": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "options": {
+      "note": "This is the note"
+    },
+    "items": [{ "source": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" }],
+    "sortOrder": 8,
+    "type": "video"
+  },
+  {
+    "key": "audio-9",
+    "titleWithExplanations": "Is this the first time you have purchased Voltaren Emulgel for this condition in the last 12 months?",
+    "bodyWithExplanations": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "items": [{ "source": "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/master/sample.mp3" }],
+    "sortOrder": 9,
+    "type": "audio"
+  },
+  {
+    "key": "image-10",
+    "titleWithExplanations": "Is this the first time you have purchased Voltaren Emulgel for this condition in the last 12 months?",
+    "bodyWithExplanations": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "items": [{ "source": "https://previews.123rf.com/images/fordzolo/fordzolo1506/fordzolo150600296/41026708-example-white-stamp-text-on-red-backgroud.jpg" }],
+    "sortOrder": 10,
+    "type": "image"
+  },
+  {
+    "key": "pdf-11",
+    "titleWithExplanations": "Is this the first time you have purchased Voltaren Emulgel for this condition in the last 12 months?",
+    "bodyWithExplanations": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "sortOrder": 11,
+    "items": [
+      {
+        "source": "data:application/pdf;base64,JVBERi0xLjMNCiXi48/TDQoNCjEgMCBvYmoNCjw8DQovVHlwZSAvQ2F0YWxvZw0KL091dGxpbmVzIDIgMCBSDQovUGFnZXMgMyAwIFINCj4+DQplbmRvYmoNCg0KMiAwIG9iag0KPDwNCi9UeXBlIC9PdXRsaW5lcw0KL0NvdW50IDANCj4+DQplbmRvYmoNCg0KMyAwIG9iag0KPDwNCi9UeXBlIC9QYWdlcw0KL0NvdW50IDINCi9LaWRzIFsgNCAwIFIgNiAwIFIgXSANCj4+DQplbmRvYmoNCg0KNCAwIG9iag0KPDwNCi9UeXBlIC9QYWdlDQovUGFyZW50IDMgMCBSDQovUmVzb3VyY2VzIDw8DQovRm9udCA8PA0KL0YxIDkgMCBSIA0KPj4NCi9Qcm9jU2V0IDggMCBSDQo+Pg0KL01lZGlhQm94IFswIDAgNjEyLjAwMDAgNzkyLjAwMDBdDQovQ29udGVudHMgNSAwIFINCj4+DQplbmRvYmoNCg0KNSAwIG9iag0KPDwgL0xlbmd0aCAxMDc0ID4+DQpzdHJlYW0NCjIgSg0KQlQNCjAgMCAwIHJnDQovRjEgMDAyNyBUZg0KNTcuMzc1MCA3MjIuMjgwMCBUZA0KKCBBIFNpbXBsZSBQREYgRmlsZSApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY4OC42MDgwIFRkDQooIFRoaXMgaXMgYSBzbWFsbCBkZW1vbnN0cmF0aW9uIC5wZGYgZmlsZSAtICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjY0LjcwNDAgVGQNCigganVzdCBmb3IgdXNlIGluIHRoZSBWaXJ0dWFsIE1lY2hhbmljcyB0dXRvcmlhbHMuIE1vcmUgdGV4dC4gQW5kIG1vcmUgKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NTIuNzUyMCBUZA0KKCB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDYyOC44NDgwIFRkDQooIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjE2Ljg5NjAgVGQNCiggdGV4dC4gQW5kIG1vcmUgdGV4dC4gQm9yaW5nLCB6enp6ei4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjA0Ljk0NDAgVGQNCiggbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDU5Mi45OTIwIFRkDQooIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNTY5LjA4ODAgVGQNCiggQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA1NTcuMTM2MCBUZA0KKCB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBFdmVuIG1vcmUuIENvbnRpbnVlZCBvbiBwYWdlIDIgLi4uKSBUag0KRVQNCmVuZHN0cmVhbQ0KZW5kb2JqDQoNCjYgMCBvYmoNCjw8DQovVHlwZSAvUGFnZQ0KL1BhcmVudCAzIDAgUg0KL1Jlc291cmNlcyA8PA0KL0ZvbnQgPDwNCi9GMSA5IDAgUiANCj4+DQovUHJvY1NldCA4IDAgUg0KPj4NCi9NZWRpYUJveCBbMCAwIDYxMi4wMDAwIDc5Mi4wMDAwXQ0KL0NvbnRlbnRzIDcgMCBSDQo+Pg0KZW5kb2JqDQoNCjcgMCBvYmoNCjw8IC9MZW5ndGggNjc2ID4+DQpzdHJlYW0NCjIgSg0KQlQNCjAgMCAwIHJnDQovRjEgMDAyNyBUZg0KNTcuMzc1MCA3MjIuMjgwMCBUZA0KKCBTaW1wbGUgUERGIEZpbGUgMiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY4OC42MDgwIFRkDQooIC4uLmNvbnRpbnVlZCBmcm9tIHBhZ2UgMS4gWWV0IG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NzYuNjU2MCBUZA0KKCBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY2NC43MDQwIFRkDQooIHRleHQuIE9oLCBob3cgYm9yaW5nIHR5cGluZyB0aGlzIHN0dWZmLiBCdXQgbm90IGFzIGJvcmluZyBhcyB3YXRjaGluZyApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY1Mi43NTIwIFRkDQooIHBhaW50IGRyeS4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NDAuODAwMCBUZA0KKCBCb3JpbmcuICBNb3JlLCBhIGxpdHRsZSBtb3JlIHRleHQuIFRoZSBlbmQsIGFuZCBqdXN0IGFzIHdlbGwuICkgVGoNCkVUDQplbmRzdHJlYW0NCmVuZG9iag0KDQo4IDAgb2JqDQpbL1BERiAvVGV4dF0NCmVuZG9iag0KDQo5IDAgb2JqDQo8PA0KL1R5cGUgL0ZvbnQNCi9TdWJ0eXBlIC9UeXBlMQ0KL05hbWUgL0YxDQovQmFzZUZvbnQgL0hlbHZldGljYQ0KL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcNCj4+DQplbmRvYmoNCg0KMTAgMCBvYmoNCjw8DQovQ3JlYXRvciAoUmF2ZSBcKGh0dHA6Ly93d3cubmV2cm9uYS5jb20vcmF2ZVwpKQ0KL1Byb2R1Y2VyIChOZXZyb25hIERlc2lnbnMpDQovQ3JlYXRpb25EYXRlIChEOjIwMDYwMzAxMDcyODI2KQ0KPj4NCmVuZG9iag0KDQp4cmVmDQowIDExDQowMDAwMDAwMDAwIDY1NTM1IGYNCjAwMDAwMDAwMTkgMDAwMDAgbg0KMDAwMDAwMDA5MyAwMDAwMCBuDQowMDAwMDAwMTQ3IDAwMDAwIG4NCjAwMDAwMDAyMjIgMDAwMDAgbg0KMDAwMDAwMDM5MCAwMDAwMCBuDQowMDAwMDAxNTIyIDAwMDAwIG4NCjAwMDAwMDE2OTAgMDAwMDAgbg0KMDAwMDAwMjQyMyAwMDAwMCBuDQowMDAwMDAyNDU2IDAwMDAwIG4NCjAwMDAwMDI1NzQgMDAwMDAgbg0KDQp0cmFpbGVyDQo8PA0KL1NpemUgMTENCi9Sb290IDEgMCBSDQovSW5mbyAxMCAwIFINCj4+DQoNCnN0YXJ0eHJlZg0KMjcxNA0KJSVFT0YNCg=="
+      }
+    ],
+    "type": "pdf"
+  },
+  {
+    "key": "signature-12",
+    "titleWithExplanations": "Is this the first time you have purchased Voltaren Emulgel for this condition in the last 12 months?",
+    "bodyWithExplanations": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "sortOrder": 12,
+    "recipient": { "role": "CONSENTEE", "id": "someIdHere" },
+    "options": {
+      "reason": "This is the reason which explains in length why we need to sign this document, it doesn't hurt to read it for Christ's sake!",
+      "disclaimer": "I have had the opportunity to ask the site investigator any and all questions I have, and all of my questions have been resolved to my satisfaction."
+    },
+    "type": "signature"
+  },
+  {
+    "key": "signature-13",
+    "titleWithExplanations": "Is this the first time you have purchased Voltaren Emulgel for this condition in the last 12 months?",
+    "bodyWithExplanations": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "sortOrder": 13,
+    "recipient": { "role": "COUNTERSIGNEE", "id": "otherIdHere" },
+    "answer": {
+      "signatureData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlMAAAEwCAYAAACTyfSBAAAS/0lEQVR4Xu3dsY5kRxXH4WNLThCS/QAgHBIBIkaCCPEgPIgfhQSJjN0QOTEicIolS04cQGhITGQHyItK6pLuDjOeqzn/md3p8420mlm7q3rqqwp+ure7953yRYAAAQIECBAg8GCBdx480kACBAgQIECAAIESUw4BAQIECBAgQKAhIKYaeIYSIECAAAECBMSUM0CAAAECBAgQaAiIqQaeoQQIECBAgAABMeUMECBAgAABAgQaAmKqgWcoAQIECBAgQEBMOQMECBAgQIAAgYaAmGrgGUqAAAECBAgQEFPOAAECBAgQIECgISCmGniGEiBAgAABAgTElDNAgAABAgQIEGgIiKkGnqEECBAgQIAAATHlDBAgQIAAAQIEGgJiqoFnKAECBAgQIEBATDkDBAgQIECAAIGGgJhq4BlKgAABAgQIEBBTzgABAgQIECBAoCEgphp4hhIgQIAAAQIExJQzQIAAAQIECBBoCIipBp6hBAgQIECAAAEx5QwQIECAAAECBBoCYqqBZygBAgQIECBAQEw5AwQIECBAgACBhoCYauAZSoAAAQIECBAQU84AAQIECBAgQKAhIKYaeIYSIECAAAECBMSUM0CAAAECBAgQaAiIqQaeoQQIECBAgAABMeUMECBAgAABAgQaAmKqgWcoAQIECBAgQEBMOQMECBAgQIAAgYaAmGrgGUqAAAECBAgQEFPOAAECBAgQIECgISCmGniGEiBAgAABAgTElDNAgAABAgQIEGgIiKkGnqEECBAgQIAAATHlDBAgQIAAAQIEGgJiqoFnKAECBAgQIEBATDkDBAgQIECAAIGGgJhq4BlKgAABAgQIEBBTzgABAgQIECBAoCEgphp4hhIgQIAAAQIExJQzQIAAAQIECBBoCIipBp6hBAgQIECAAAEx5QwQIECAAAECBBoCYqqBZygBAgQIECBAQEw5AwQIECBAgACBhoCYauAZSoAAAQIECBAQU84AAQIECBAgQKAhIKYaeIYSIECAAAECBMSUM0CAAAECBAgQaAiIqQaeoQQIECBAgAABMeUMECBAgAABAgQaAmKqgWcoAQIECBAgQEBMOQMECBAgQIAAgYaAmGrgGUqAAAECBAgQEFPOAAECBAgQIECgISCmGniGEiBAgAABAgTElDNAgAABAgQIEGgIiKkGnqEECBAgQIAAATHlDBAgQIAAAQIEGgJiqoFnKAECBAgQIEBATDkDBAgQIECAAIGGgJhq4BlKgAABAgQIEBBTzgABAgQIECBAoCEgphp4hhIgQIAAAQIExJQzQIAAAQIECBBoCIipBp6hBAgQIECAAAEx5QwQIECAAAECBBoCYqqBZygBAgQIECBAQEw5AwQIECBAgACBhoCYauAZSoAAAQIECBAQU84AAQIECBAgQKAhIKYaeIYSIECAAAECBMSUM0CAAAECBAgQaAiIqQaeoQQIECBAgAABMeUMECBAgAABAgQaAmKqgWcoAQIECBAgQEBMOQMECBAgQIAAgYaAmGrgGUqAAAECBAgQEFPOAAECBAgQIECgISCmGniGEiBAgAABAgTElDNAgAABAgQIEGgIiKkGnqEECBAgQIAAATHlDBAgQIAAAQIEGgJiqoFnKAECBAgQIEBATDkDBAgQIECAAIGGgJhq4BlKgAABAgQIEBBTzgABAgQIECBAoCEgphp4hhIgQIAAAQIExJQzQIAAAQIECBBoCIipBp6hBAgQIECAAAEx5QwQIECAAAECBBoCYqqBZygBAgQIECBAQEw5AwQIECBAgACBhoCYauAZSoAAAQIECBAQU84AAQIECBAgQKAhIKYaeIYSIECAAAECBMSUM0CAAAECBAgQaAiIqQaeoQQIECBAgAABMeUMECBAgAABAgQaAmKqgWcoAQIECBAgQEBMOQMECBAgQIAAgYaAmGrgGUqAAAECBAgQEFPOAAECBAgQIECgISCmGniGEiBAgAABAgTElDNAgAABAgQIEGgIiKkGnqEECBAgQIAAATHlDBAgQIAAAQIEGgJiqoFnKAECBAgQIEBATDkDBAgQIECAAIGGgJhq4BlKgAABAgQIEBBTzgABAgQIECBAoCEgphp4hhIgQIAAAQIExJQzQIAAAQIECBBoCIipBp6hBAgQIECAAAEx5QwQIECAAAECBBoCYqqBZygBAgQIECBAQEw5AwQIECBAgACBhoCYauAZSoAAAQIECBAQU84AAQIECBAgQKAhIKYaeIYSIECAAAECBMSUM0CAAAECBAgQaAiIqQaeoQQIECBAgAABMeUMECBAgAABAgQaAmKqgWcoAQIECBAgQEBMOQMECBAgQIAAgYaAmGrgGUqAAAECBAgQ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",
+      "disclaimerChecked": true
+    },
+    "options": {
+      "disclaimer": "This is a disclaimer it could get awfully, awfully, awfully, awfully, awfully, awfully, awfully, awfully, awfully, awfully, awfully, awfully, awfully, awfully, awfully, awfully, long"
+    },
+    "type": "signature"
+  }
+]
