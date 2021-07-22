@@ -1,18 +1,18 @@
-import { MuiThemeProvider } from '@material-ui/core';
-import { useCallback, useState } from 'react';
-import mockData from '../data/mockData.json';
-import { blockTypes } from '../lib/constants';
-import FormBuilderContent from '../lib/form-builder-content';
-import SectionBlock from '../lib/form-builder-content/section/section-block';
-import muiTheme from '../lib/form-builder-content/theme/muiTheme';
+import { MuiThemeProvider } from "@material-ui/core";
+import { useCallback, useState } from "react";
+import mockData from "../data/mockData.json";
+import { blockTypes } from "../lib/constants";
+import FormBuilderContent from "../lib/form-builder-content";
+import SectionBlock from "../lib/form-builder-content/section/section-block";
+import muiTheme from "../lib/form-builder-content/theme/muiTheme";
 import {
   actions,
   builderReducer,
-} from '../lib/form-builder-content/useBuilder';
-import defaultRoles from '../lib/utils/defaultRoles';
+} from "../lib/form-builder-content/useBuilder";
+import defaultRoles from "../lib/utils/defaultRoles";
 
 const config = {
-  title: 'FormBuilder/Builder',
+  title: "FormBuilder/Builder",
 };
 
 export default config;
@@ -22,15 +22,15 @@ const FormBuilder = (args) => <FormBuilderContent {...args} theme={muiTheme} />;
 export const FullBuilder = FormBuilder.bind({});
 FullBuilder.args = {
   initialData: mockData,
-  uploadServiceUrl: 'https://uploads.xxx.xyz/api',
+  uploadServiceUrl: "https://uploads.trialbee.xyz/api",
 };
 
 const CustomReducerFormBuilder = (args) => {
   const reducer = useCallback((state, action) => {
     const newState = builderReducer(state, action);
     if (action.type === actions.UPDATE_FORM_TITLE) {
-      if (!newState.title.includes('[Custom Reducer]')) {
-        return { ...newState, title: '[Custom Reducer] ' + newState.title };
+      if (!newState.title.includes("[Custom Reducer]")) {
+        return { ...newState, title: "[Custom Reducer] " + newState.title };
       }
     }
     return newState;
@@ -43,7 +43,7 @@ const CustomReducerFormBuilder = (args) => {
 export const CustomReducerBuilder = CustomReducerFormBuilder.bind({});
 FullBuilder.CustomReducerBuilder = {
   initialData: mockData,
-  uploadServiceUrl: 'https://uploads.xxx.xyz/api',
+  uploadServiceUrl: "https://uploads.trialbee.xyz/api",
 };
 
 const SectionBlockContainer = ({ block, ...rest }) => {
@@ -58,20 +58,20 @@ const SectionBlockContainer = ({ block, ...rest }) => {
 export const TextQuestion = (args) => <SectionBlockContainer {...args} />;
 TextQuestion.args = {
   block: {
-    title: 'Add Title',
-    body: 'Add body',
+    title: "Add Title",
+    body: "Add body",
     type: blockTypes.freetext,
-    options: { placeholder: 'Custom placeholder…' },
+    options: { placeholder: "Custom placeholder…" },
   },
 };
 
 export const BooleanQuestion = (args) => <SectionBlockContainer {...args} />;
 BooleanQuestion.args = {
   block: {
-    title: 'Add Title',
-    body: 'Add body',
+    title: "Add Title",
+    body: "Add body",
     type: blockTypes.yesno,
-    options: { trueValue: 'Yes', falseValue: 'No' },
+    options: { trueValue: "Yes", falseValue: "No" },
   },
 };
 
@@ -80,14 +80,14 @@ export const MultiSelectQuestion = (args) => (
 );
 MultiSelectQuestion.args = {
   block: {
-    title: 'Add Title',
-    body: 'Add body',
+    title: "Add Title",
+    body: "Add body",
     type: blockTypes.multiselect,
     items: [
-      { key: 'is_mandatory_key', value: 'Mandatory', isMandatory: false },
+      { key: "is_mandatory_key", value: "Mandatory", isMandatory: false },
       {
-        key: 'is_mandatory_key',
-        value: 'Mandatory',
+        key: "is_mandatory_key",
+        value: "Mandatory",
         isMandatory: false,
       },
     ],
@@ -99,12 +99,12 @@ export const SingleSelectQuestion = (args) => (
 );
 SingleSelectQuestion.args = {
   block: {
-    title: 'Add Title',
-    body: 'Add body',
+    title: "Add Title",
+    body: "Add body",
     type: blockTypes.singleselect,
     items: [
-      { key: 'item-1', value: 'Item 1', isMandatory: false },
-      { key: 'item-2', value: 'item 2', isMandatory: false },
+      { key: "item-1", value: "Item 1", isMandatory: false },
+      { key: "item-2", value: "item 2", isMandatory: false },
     ],
   },
 };
@@ -112,12 +112,12 @@ SingleSelectQuestion.args = {
 export const DropDownQuestion = (args) => <SectionBlockContainer {...args} />;
 DropDownQuestion.args = {
   block: {
-    title: 'Add Title',
-    body: 'Add body',
+    title: "Add Title",
+    body: "Add body",
     type: blockTypes.dropdown,
     items: [
-      { key: 'item-1', value: 'Item 1', isMandatory: false },
-      { key: 'item-2', value: 'item 2', isMandatory: false },
+      { key: "item-1", value: "Item 1", isMandatory: false },
+      { key: "item-2", value: "item 2", isMandatory: false },
     ],
   },
 };
@@ -125,8 +125,8 @@ DropDownQuestion.args = {
 export const NumberQuestion = (args) => <SectionBlockContainer {...args} />;
 NumberQuestion.args = {
   block: {
-    title: 'Add Title',
-    body: 'Add body',
+    title: "Add Title",
+    body: "Add body",
     type: blockTypes.number,
     options: { minValue: 0, maxValue: 10 },
   },
@@ -135,14 +135,14 @@ NumberQuestion.args = {
 export const ScaleQuestion = (args) => <SectionBlockContainer {...args} />;
 ScaleQuestion.args = {
   block: {
-    title: 'Add Title',
-    body: 'Add body',
+    title: "Add Title",
+    body: "Add body",
     type: blockTypes.scale,
     options: {
       minValue: 0,
       maxValue: 10,
-      minValueText: 'Min',
-      maxValueText: 'Max',
+      minValueText: "Min",
+      maxValueText: "Max",
     },
   },
 };
@@ -150,8 +150,8 @@ ScaleQuestion.args = {
 export const TextBlock = (args) => <SectionBlockContainer {...args} />;
 TextBlock.args = {
   block: {
-    title: 'Add Title',
-    body: 'Add body',
+    title: "Add Title",
+    body: "Add body",
     type: blockTypes.textBlock,
     options: {},
   },
@@ -160,10 +160,10 @@ TextBlock.args = {
 export const Signature = (args) => <SectionBlockContainer {...args} />;
 Signature.args = {
   block: {
-    title: 'Add Title',
-    body: 'Add body',
+    title: "Add Title",
+    body: "Add body",
     type: blockTypes.signature,
-    options: { reason: 'why did you sign' },
+    options: { reason: "why did you sign" },
   },
   signatureOptions: {
     roles: defaultRoles,

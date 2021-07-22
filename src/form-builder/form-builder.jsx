@@ -7,10 +7,7 @@ import PropTypes from 'prop-types';
 import React, { useCallback, useRef, useState } from 'react';
 import mockData from '../data/mockData.json';
 import FormBuilderContent from '../lib/form-builder-content';
-import {
-  builderReducer,
-  prepareDataForSave,
-} from '../lib/form-builder-content/useBuilder';
+import { builderReducer, prepareDataForSave } from '../lib/form-builder-content/useBuilder';
 import FormBuilderGlossary from '../lib/form-builder-glossary';
 import FormBuilderPreview from '../lib/form-builder-preview';
 import FormStyler from '../lib/form-builder-styling';
@@ -20,13 +17,7 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
+    <div role="tabpanel" hidden={value !== index} id={`simple-tabpanel-${index}`} aria-labelledby={`simple-tab-${index}`} {...other}>
       {value === index && <div p={4}>{children}</div>}
     </div>
   );
@@ -71,12 +62,7 @@ const FormBuilder = ({ classes }) => {
 
   return (
     <div>
-      <AppBar
-        className={classes.appBar}
-        position="static"
-        color="default"
-        elevation={0}
-      >
+      <AppBar className={classes.appBar} position="static" color="default" elevation={0}>
         <div>
           <div className={classes.headerTabsContainer}>
             <Tabs
@@ -100,30 +86,16 @@ const FormBuilder = ({ classes }) => {
       </AppBar>
       <CssBaseline />
       <TabPanel value={activeTab} index={0}>
-        <FormBuilderContent
-          uploadServiceUrl="https://uploads.xxx.xyz/api"
-          initialData={data}
-          reducer={customReducer}
-        />
+        <FormBuilderContent uploadServiceUrl="https://uploads.trialbee.xyz/api" initialData={data} reducer={customReducer} />
       </TabPanel>
       <TabPanel value={activeTab} index={1}>
         <FormStyler theme={theme} onChange={setTheme} />
       </TabPanel>
       <TabPanel value={activeTab} index={2}>
-        <FormBuilderGlossary
-          initialData={data}
-          glossary={glossary}
-          onChange={setGlossary}
-        />
+        <FormBuilderGlossary initialData={data} glossary={glossary} onChange={setGlossary} />
       </TabPanel>
       <TabPanel value={activeTab} index={3}>
-        <FormBuilderPreview
-          initialData={data}
-          adminMode={true}
-          theme={theme}
-          glossary={glossary}
-          onSubmit={console.warn}
-        />
+        <FormBuilderPreview initialData={data} adminMode={true} theme={theme} glossary={glossary} onSubmit={console.warn} />
       </TabPanel>
     </div>
   );
