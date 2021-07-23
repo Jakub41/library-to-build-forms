@@ -54,8 +54,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -o ./dist/ -s public",
     "languages:build": "yarn extract && yarn compile && rm -rf ./lang > /dev/null",
-    "extract": "formatjs extract 'src/lib/(form-builder-content||form-builder-glossary||form-builder-preview||form-builder-styling||prop-validations||utils)/components/**/*.{ts,js}' --out-file lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6]",
-    "extract:test": "formatjs extract --out-file lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6]",
+    "extract": "formatjs extract 'src/**/**/*.{ts,tsx,js,jsx}' --out-file lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6]",
     "compile": "formatjs compile lang/en.json --ast --out-file compiled-lang/en.json"
   },
   "eslintConfig": {
