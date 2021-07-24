@@ -3,4 +3,5 @@
 ## Simple instructions
 
 1. yarn
-2. yarn run storybook
+2. yarn run languages:build
+3. yarn run storybook
