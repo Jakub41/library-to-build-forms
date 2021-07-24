@@ -2,6 +2,7 @@ import { CssBaseline, MuiThemeProvider, withStyles } from '@material-ui/core';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 import { pdfjs } from 'react-pdf';
+import { getMessages } from '../../languages';
 import emptyData from '../data/mockData.json';
 import roles from '../utils/defaultRoles';
 import useGetObjectValueOrDefault from '../utils/useGetValueOrDefault';
@@ -35,11 +36,12 @@ const FormBuilderContent = ({ data, dispatch, classes, signatureOptions }) => (
 
 const ThemedFormBuilder = withStyles(styles)(FormBuilderContent);
 
-const ThemeContextFormBuilder = ({ data, dispatch, signatureOptions }) => {
+const ThemeContextFormBuilder = async({ data, dispatch, signatureOptions }) => { 
+  const [messages] = await getMessages();
   return (
     <MuiThemeProvider theme={muiTheme}>
       <CssBaseline />
-      <IntlProvider defaultLocale="en" locale="en">
+      <IntlProvider messages={messages} defaultLocale="en" locale="en">
         <ThemedFormBuilder
           data={data}
           dispatch={dispatch}

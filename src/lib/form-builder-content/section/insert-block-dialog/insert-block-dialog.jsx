@@ -2,14 +2,13 @@ import { Menu, MenuItem, withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import React, { useState } from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { blockTypes } from '../../../constants';
 import Visible from '../../components/visible';
 import modes from './insert-block-dialog.static';
 import styles from './insert-block-dialog.styles';
 
 const InsertBlockDialog = ({ classes, onInsertBlock, mode, blockIndex }) => {
-  const intl = useIntl();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -47,23 +46,23 @@ const InsertBlockDialog = ({ classes, onInsertBlock, mode, blockIndex }) => {
       >
         <Visible when={mode !== modes.top}>
           <MenuItem onClick={handleInsertBlock(blockTypes.textBlock)}>
-            {intl.formatMessage({ defaultMessage: 'Text Block' })}
+            <FormattedMessage defaultMessage="Text Block" />
           </MenuItem>
         </Visible>
 
         <MenuItem onClick={handleInsertBlock('newPage')}>
-          {intl.formatMessage({ defaultMessage: 'New Page' })}
+          <FormattedMessage defaultMessage="New Page" />
         </MenuItem>
 
         <Visible when={mode !== modes.top}>
           <MenuItem onClick={handleInsertBlock(blockTypes.yesno)}>
-            {intl.formatMessage({ defaultMessage: 'Question' })}
+            <FormattedMessage defaultMessage="Question" />
           </MenuItem>
           <MenuItem onClick={handleInsertBlock(blockTypes.media)}>
-            {intl.formatMessage({ defaultMessage: 'Media' })}
+            <FormattedMessage defaultMessage="Media" />
           </MenuItem>
           <MenuItem onClick={handleInsertBlock(blockTypes.signature)}>
-            {intl.formatMessage({ defaultMessage: 'Signature' })}
+            <FormattedMessage defaultMessage="Signature" />
           </MenuItem>
         </Visible>
       </Menu>
@@ -74,7 +73,7 @@ const InsertBlockDialog = ({ classes, onInsertBlock, mode, blockIndex }) => {
         size="small"
         startIcon={<AddIcon />}
       >
-        {intl.formatMessage({ defaultMessage: 'Add Block' })}
+        Add Block
       </Button>
     </>
   );

@@ -1,11 +1,10 @@
 import { IconButton, Menu, MenuItem } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { useMenu } from '../../hooks';
 
 const SectionMenu = ({ onDelete }) => {
-  const intl = useIntl();
   const { anchorEl, handleClick, handleClose } = useMenu();
 
   const handleDelete = () => {
@@ -31,9 +30,7 @@ const SectionMenu = ({ onDelete }) => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleDelete}>
-          {intl.formatMessage({
-            defaultMessage: 'Delete',
-          })}
+          <FormattedMessage defaultMessage="Delete" />
         </MenuItem>
       </Menu>
     </>

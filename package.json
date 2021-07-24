@@ -1,7 +1,7 @@
 {
   "name": "econsent-form-builder",
   "version": "0.6.54",
-  "lang": "./compiled-lang",
+  "lang": "./src/compiled-lang",
   "supportedLocales": [
     "en"
   ],
@@ -32,8 +32,8 @@
     }
   },
   "dependencies": {
-    "@formatjs/intl-pluralrules": "^4.0.28",
-    "@formatjs/intl-relativetimeformat": "^9.1.7",
+    "@formatjs/intl-pluralrules": "^4.1.0",
+    "@formatjs/intl-relativetimeformat": "^9.2.0",
     "@toast-ui/react-editor": "^3.0.1",
     "codemirror": "^5.62.0",
     "prop-types": "^15.7.2",
@@ -46,16 +46,16 @@
     "vh-check": "^2.0.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "rescripts  start",
     "build": "rm -rf build && NODE_ENV=production babel src/lib --out-dir build --copy-files",
-    "test": "react-scripts test --env=node",
-    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
+    "test": "rescripts  test --env=node",
+    "test:debug": "rescripts  --inspect-brk test --runInBand --no-cache",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -o ./dist/ -s public",
     "languages:build": "yarn extract && yarn compile && rm -rf ./lang > /dev/null",
-    "extract": "formatjs extract 'src/**/**/*.{ts,tsx,js,jsx}' --out-file lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6]",
-    "compile": "formatjs compile lang/en.json --ast --out-file compiled-lang/en.json"
+    "extract": "formatjs extract 'src/**/*.{ts,tsx,js,jsx}' --out-file lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6]",
+    "compile": "formatjs compile lang/en.json --ast --out-file src/compiled-lang/en.json"
   },
   "eslintConfig": {
     "extends": [
@@ -84,6 +84,7 @@
     "@material-ui/core": "4.12.2",
     "@material-ui/icons": "4.11.2",
     "@material-ui/styles": "4.11.4",
+    "@rescripts/cli": "^0.0.16",
     "@storybook/addon-actions": "6.3.5",
     "@storybook/addon-essentials": "6.3.5",
     "@storybook/addon-links": "6.3.5",
@@ -97,7 +98,7 @@
     "babel-core": "6.26.3",
     "babel-plugin-formatjs": "10.3.2",
     "babel-preset-react-app": "10.0.0",
-    "customize-cra": "1.0.0",
+    "customize-cra": "^1.0.0",
     "eslint": "7.31.0",
     "eslint-plugin-formatjs": "2.17.1",
     "html-react-parser": "1.2.7",
@@ -106,7 +107,7 @@
     "jsondiffpatch-for-react": "1.0.4",
     "prettier": "2.3.2",
     "react": "17.0.2",
-    "react-app-rewired": "2.1.8",
+    "react-app-rewired": "^2.1.8",
     "react-dom": "17.0.2",
     "react-scripts": "4.0.3",
     "react-test-renderer": "17.0.2",

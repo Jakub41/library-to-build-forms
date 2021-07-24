@@ -86,7 +86,7 @@ const FormBuilder = ({ classes }) => {
       </AppBar>
       <CssBaseline />
       <TabPanel value={activeTab} index={0}>
-        <FormBuilderContent uploadServiceUrl="https://uploads.trialbee.xyz/api" initialData={data} reducer={customReducer} />
+        <FormBuilderContent uploadServiceUrl="https://uploads.xxx.xyz/api" initialData={data} reducer={customReducer} />
       </TabPanel>
       <TabPanel value={activeTab} index={1}>
         <FormStyler theme={theme} onChange={setTheme} />

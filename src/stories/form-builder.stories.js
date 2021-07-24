@@ -7,7 +7,7 @@ import SectionBlock from "../lib/form-builder-content/section/section-block";
 import muiTheme from "../lib/form-builder-content/theme/muiTheme";
 import {
   actions,
-  builderReducer,
+  builderReducer
 } from "../lib/form-builder-content/useBuilder";
 import defaultRoles from "../lib/utils/defaultRoles";
 
@@ -22,7 +22,7 @@ const FormBuilder = (args) => <FormBuilderContent {...args} theme={muiTheme} />;
 export const FullBuilder = FormBuilder.bind({});
 FullBuilder.args = {
   initialData: mockData,
-  uploadServiceUrl: "https://uploads.trialbee.xyz/api",
+  uploadServiceUrl: "https://uploads.xxx.xyz/api",
 };
 
 const CustomReducerFormBuilder = (args) => {
@@ -43,7 +43,7 @@ const CustomReducerFormBuilder = (args) => {
 export const CustomReducerBuilder = CustomReducerFormBuilder.bind({});
 FullBuilder.CustomReducerBuilder = {
   initialData: mockData,
-  uploadServiceUrl: "https://uploads.trialbee.xyz/api",
+  uploadServiceUrl: "https://uploads.xxx.xyz/api",
 };
 
 const SectionBlockContainer = ({ block, ...rest }) => {
