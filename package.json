@@ -46,10 +46,10 @@
     "vh-check": "^2.0.5"
   },
   "scripts": {
-    "start": "rescripts  start",
+    "start": "react-scripts  start",
     "build": "rm -rf build && NODE_ENV=production babel src/lib --out-dir build --copy-files",
-    "test": "rescripts  test --env=node",
-    "test:debug": "rescripts  --inspect-brk test --runInBand --no-cache",
+    "test": "react-scripts  test --env=node",
+    "test:debug": "react-scripts  --inspect-brk test --runInBand --no-cache",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -o ./dist/ -s public",
