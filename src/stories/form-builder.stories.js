@@ -1,5 +1,7 @@
 import { ThemeProvider } from '@material-ui/core';
 import { useCallback, useState } from 'react';
+import { IntlProvider } from 'react-intl';
+import enMessages from '../compiled-lang/en.json';
 import mockData from '../data/mockData.json';
 import { blockTypes } from '../lib/constants';
 import FormBuilderContent from '../lib/form-builder-content';
@@ -22,7 +24,7 @@ const FormBuilder = (args) => <FormBuilderContent {...args} theme={theme} />;
 export const FullBuilder = FormBuilder.bind({});
 FullBuilder.args = {
   initialData: mockData,
-  uploadServiceUrl: 'https://uploads.xxx.xyz/api',
+  uploadServiceUrl: 'https://uploads.trialbee.xyz/api',
 };
 
 const CustomReducerFormBuilder = (args) => {
@@ -43,15 +45,17 @@ const CustomReducerFormBuilder = (args) => {
 export const CustomReducerBuilder = CustomReducerFormBuilder.bind({});
 FullBuilder.CustomReducerBuilder = {
   initialData: mockData,
-  uploadServiceUrl: 'https://uploads.xxx.xyz/api',
+  uploadServiceUrl: 'https://uploads.trialbee.xyz/api',
 };
 
 const SectionBlockContainer = ({ block, ...rest }) => {
   const [theBlock, onChange] = useState(block);
   return (
-    <ThemeProvider theme={theme}>
-      <SectionBlock block={theBlock} onChange={onChange} {...rest} />
-    </ThemeProvider>
+    <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+      <ThemeProvider theme={theme}>
+        <SectionBlock block={theBlock} onChange={onChange} {...rest} />
+      </ThemeProvider>
+    </IntlProvider>
   );
 };
 

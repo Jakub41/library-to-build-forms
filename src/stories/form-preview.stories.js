@@ -10,6 +10,8 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import JsonDiffReact from 'jsondiffpatch-for-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { IntlProvider } from 'react-intl';
+import enMessages from '../compiled-lang/en.json';
 import demoMockData from '../data/demo/mockData.json';
 import demoMockTheme from '../data/demo/mockTheme.json';
 import signaturesMockData from '../data/demo/signaturesMockData.json';
@@ -47,13 +49,15 @@ export default config;
 const DefaultPreviewBuilder = (args) => {
   return (
     <div style={{ height: '100vh' }}>
-      <ThemeProvider theme={defaultTheme}>
-        <Preview
-          currentUser={currentUser}
-          {...args}
-          onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
-        />
-      </ThemeProvider>
+      <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+        <ThemeProvider theme={defaultTheme}>
+          <Preview
+            currentUser={currentUser}
+            {...args}
+            onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
+          />
+        </ThemeProvider>
+      </IntlProvider>
     </div>
   );
 };
@@ -126,15 +130,17 @@ const LiveChatPreviewBuilder = (args) => {
 
   return (
     <div style={{ height: '100vh' }}>
-      <ThemeProvider theme={defaultTheme}>
-        <Preview
-          {...args}
-          onAddMessage={onAddMessage}
-          onViewConversation={onViewConversation}
-          conversation={conversation}
-          onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
-        />
-      </ThemeProvider>
+      <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+        <ThemeProvider theme={defaultTheme}>
+          <Preview
+            {...args}
+            onAddMessage={onAddMessage}
+            onViewConversation={onViewConversation}
+            conversation={conversation}
+            onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
+          />
+        </ThemeProvider>
+      </IntlProvider>
     </div>
   );
 };
@@ -184,13 +190,15 @@ const PreviewBuilder375x800 = (args) => {
         borderRadius: 10,
       }}
     >
-      <ThemeProvider theme={defaultTheme}>
-        <Preview
-          currentUser={currentUser}
-          {...args}
-          onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
-        />
-      </ThemeProvider>
+      <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+        <ThemeProvider theme={defaultTheme}>
+          <Preview
+            currentUser={currentUser}
+            {...args}
+            onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
+          />
+        </ThemeProvider>
+      </IntlProvider>
     </div>
   );
 };
@@ -250,13 +258,15 @@ const CustomReducerPreview = (args) => {
     return newState;
   }, []);
   const result = (
-    <ThemeProvider theme={defaultTheme}>
-      <Preview
-        initialData={args.form}
-        reducer={reducer}
-        onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
-      />
-    </ThemeProvider>
+    <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+      <ThemeProvider theme={defaultTheme}>
+        <Preview
+          initialData={args.form}
+          reducer={reducer}
+          onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
+        />
+      </ThemeProvider>
+    </IntlProvider>
   );
   return result;
 };
@@ -296,36 +306,38 @@ const Builder = (args) => {
   const toggle = (key) => () => setExpanded((x) => ({ ...x, [key]: !x[key] }));
 
   return (
-    <ThemeProvider theme={createTheme(demoMockTheme)}>
-      <SectionBlock
-        block={block}
-        currentUser={currentUser}
-        onChange={setBlock}
-        readOnly={args.readOnly}
-      />
+    <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+      <ThemeProvider theme={createTheme(demoMockTheme)}>
+        <SectionBlock
+          block={block}
+          currentUser={currentUser}
+          onChange={setBlock}
+          readOnly={args.readOnly}
+        />
 
-      <Paper style={{ margin: 'auto 20px' }}>
-        <CodePreview
-          title="Diff between original and updated data"
-          expanded={expanded.diff}
-          onChange={toggle('diff')}
-        >
-          <JsonDiffReact left={args} right={block} />
-        </CodePreview>
-        <CodePreview
-          title="Original data"
-          jsonContent={args}
-          expanded={expanded.original}
-          onChange={toggle('original')}
-        />
-        <CodePreview
-          title="Updated data"
-          jsonContent={block}
-          expanded={expanded.updated}
-          onChange={toggle('updated')}
-        />
-      </Paper>
-    </ThemeProvider>
+        <Paper style={{ margin: 'auto 20px' }}>
+          <CodePreview
+            title="Diff between original and updated data"
+            expanded={expanded.diff}
+            onChange={toggle('diff')}
+          >
+            <JsonDiffReact left={args} right={block} />
+          </CodePreview>
+          <CodePreview
+            title="Original data"
+            jsonContent={args}
+            expanded={expanded.original}
+            onChange={toggle('original')}
+          />
+          <CodePreview
+            title="Updated data"
+            jsonContent={block}
+            expanded={expanded.updated}
+            onChange={toggle('updated')}
+          />
+        </Paper>
+      </ThemeProvider>
+    </IntlProvider>
   );
 };
 
