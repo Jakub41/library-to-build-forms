@@ -1,4 +1,11 @@
-import { Grid, Radio, RadioGroup, TextField, Typography, withStyles } from '@material-ui/core';
+import {
+  Grid,
+  Radio,
+  RadioGroup,
+  TextField,
+  Typography,
+} from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React, { useCallback } from 'react';
 import Visible from '../../Visible';
 import styles from './SingleSelect.styles';
@@ -25,11 +32,23 @@ const SingleSelect = ({ block, onChange, readOnly, classes }) => {
       {block.items.map((item) => (
         <Grid container direction="row" key={item.key}>
           <Grid item>
-            <Radio id={`${block.key}-${item.key}`} color="primary" name={item.key} className={classes.radio} value={item.key} disabled={readOnly} />
+            <Radio
+              id={`${block.key}-${item.key}`}
+              color="primary"
+              name={item.key}
+              className={classes.radio}
+              value={item.key}
+              disabled={readOnly}
+            />
           </Grid>
           <Grid item className={classes.labelContainer}>
-            <label htmlFor={`${block.key}-${item.key}`} className={classes.label}>
-              <Typography variant="body1">{item.valueWithExplanations}</Typography>
+            <label
+              htmlFor={`${block.key}-${item.key}`}
+              className={classes.label}
+            >
+              <Typography variant="body1">
+                {item.valueWithExplanations}
+              </Typography>
             </label>
           </Grid>
         </Grid>
@@ -37,7 +56,13 @@ const SingleSelect = ({ block, onChange, readOnly, classes }) => {
       <Visible when={block.options.allowFreeText}>
         <Grid container direction="row" key="free-text">
           <Grid item>
-            <Radio checked={block.freeTextAnswer.length > 0} color="primary" name="{free-text}" className={classes.radio} disabled={readOnly} />
+            <Radio
+              checked={block.freeTextAnswer.length > 0}
+              color="primary"
+              name="{free-text}"
+              className={classes.radio}
+              disabled={readOnly}
+            />
           </Grid>
           <Grid item className={classes.textFieldContainer}>
             <TextField

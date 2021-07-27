@@ -1,4 +1,4 @@
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import 'codemirror/lib/codemirror.css';
@@ -6,7 +6,7 @@ import React, { useRef } from 'react';
 import useDebounce from '../../hooks/useDebounce';
 import './text-input.css';
 
-const toolbarItems = [['italic', 'bold', 'ul', 'ol']];
+const toolbarItems = ['italic', 'bold', 'ul', 'ol'];
 
 const TextInput = ({ value, label, onChange, ...rest }) => {
   const editor = useRef();

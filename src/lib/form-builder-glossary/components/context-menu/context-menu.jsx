@@ -1,8 +1,8 @@
-import { withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import styles from './context-menu.styles';

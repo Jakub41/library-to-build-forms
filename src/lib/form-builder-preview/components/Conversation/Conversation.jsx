@@ -11,12 +11,23 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-  withStyles,
 } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import HelpIcon from '@material-ui/icons/ContactSupport';
 import SendIcon from '@material-ui/icons/Send';
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { conversationMemberTypes, conversationMessageStatuses, modes } from '../../constants/constants';
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import {
+  conversationMemberTypes,
+  conversationMessageStatuses,
+  modes,
+} from '../../constants/constants';
 import HelpAppBar from '../HelpAppBar/HelpAppBar';
 import Visible from '../Visible';
 import styles from './Conversation.styles';
@@ -27,7 +38,9 @@ import ResolvedPrompt from './ResolvedPrompt';
 
 const MARK_READ_TIMEOUT = 3000; // Time to read the whole conversation before is marked as read
 
-const Transition = forwardRef((props, ref) => <Slide direction="down" ref={ref} {...props} />);
+const Transition = forwardRef((props, ref) => (
+  <Slide direction="down" ref={ref} {...props} />
+));
 
 /**
  * Wrte, send and receive a message
@@ -46,14 +59,19 @@ const useBasicHandlers = ({ conversation, onAddMessage }) => {
     setMessages((current) =>
       current.map((message) => ({
         ...message,
-        status: message.author.memberType === conversationMemberTypes.user ? conversationMessageStatuses.default : message.status,
+        status:
+          message.author.memberType === conversationMemberTypes.user
+            ? conversationMessageStatuses.default
+            : message.status,
       }))
     );
   }, [setMessages]);
 
   const handleSendMessage = useCallback(
     (text) => {
-      const content = (typeof text === 'string' && text.trim().length ? text : message).trim();
+      const content = (
+        typeof text === 'string' && text.trim().length ? text : message
+      ).trim();
       setSendingError(false);
 
       if (content.length) {
@@ -64,7 +82,11 @@ const useBasicHandlers = ({ conversation, onAddMessage }) => {
             setSendingError(false);
             setMessages((current) => [
               ...current,
-              { content, status: conversationMessageStatuses.default, author: { memberType: conversationMemberTypes.recipient } },
+              {
+                content,
+                status: conversationMessageStatuses.default,
+                author: { memberType: conversationMemberTypes.recipient },
+              },
             ]);
             markAsRead();
           })
@@ -77,7 +99,15 @@ const useBasicHandlers = ({ conversation, onAddMessage }) => {
           });
       }
     },
-    [onAddMessage, message, setMessages, setMessage, markAsRead, setSending, setSendingError]
+    [
+      onAddMessage,
+      message,
+      setMessages,
+      setMessage,
+      markAsRead,
+      setSending,
+      setSendingError,
+    ]
   );
 
   const handleMessageChange = useCallback(
@@ -106,7 +136,18 @@ const useBasicHandlers = ({ conversation, onAddMessage }) => {
     setSendingError(false);
   }, [setMessage, setSending, setSendingError]);
 
-  return { message, setMessage, messages, sending, sendingError, resetMessage, handleMessageChange, handleMessageKeyDown, handleSendMessage, markAsRead };
+  return {
+    message,
+    setMessage,
+    messages,
+    sending,
+    sendingError,
+    resetMessage,
+    handleMessageChange,
+    handleMessageKeyDown,
+    handleSendMessage,
+    markAsRead,
+  };
 };
 
 /**
@@ -145,19 +186,37 @@ const useDialogHandlers = ({ mode, messages, setMode, resetMessage }) => {
   // Scroll to bottom when new message received
   useEffect(scrollToBottom, [messages, scrollToBottom]);
 
-  return { fullScreen, dialogContentRef, handleOpen, handleClose, scrollToBottom };
+  return {
+    fullScreen,
+    dialogContentRef,
+    handleOpen,
+    handleClose,
+    scrollToBottom,
+  };
 };
 
 /**
  * Mark conversation as read
  */
-const useMarkAsRead = ({ mode, messages, onViewConversation, markAsRead, scrollToBottom, handleSendMessage }) => {
+const useMarkAsRead = ({
+  mode,
+  messages,
+  onViewConversation,
+  markAsRead,
+  scrollToBottom,
+  handleSendMessage,
+}) => {
   const timeoutRef = useRef();
   const [displayNotification, setDisplayNotification] = useState(false);
   const [displayResolvedPrompt, setDisplayResolvedPrompt] = useState(false);
 
   const someUnread = useMemo(
-    () => messages.some((message) => message.author.memberType === conversationMemberTypes.user && message.status === conversationMessageStatuses.pending),
+    () =>
+      messages.some(
+        (message) =>
+          message.author.memberType === conversationMemberTypes.user &&
+          message.status === conversationMessageStatuses.pending
+      ),
     [messages]
   );
 
@@ -170,9 +229,14 @@ const useMarkAsRead = ({ mode, messages, onViewConversation, markAsRead, scrollT
     clearTimeout(timeoutRef.current);
     if (mode === modes.MESSENGER && someUnread) {
       timeoutRef.current = setTimeout(() => {
-        const lastMessage = messages.length ? messages[messages.length - 1] : null;
+        const lastMessage = messages.length
+          ? messages[messages.length - 1]
+          : null;
         const showPrompt =
-          messages.some((message) => message.author.memberType === conversationMemberTypes.recipient) &&
+          messages.some(
+            (message) =>
+              message.author.memberType === conversationMemberTypes.recipient
+          ) &&
           lastMessage?.author.memberType === conversationMemberTypes.user &&
           lastMessage?.status === conversationMessageStatuses.pending;
         setDisplayResolvedPrompt(showPrompt);
@@ -182,7 +246,15 @@ const useMarkAsRead = ({ mode, messages, onViewConversation, markAsRead, scrollT
         onViewConversation();
       }, MARK_READ_TIMEOUT);
     }
-  }, [timeoutRef, mode, messages, onViewConversation, markAsRead, someUnread, setDisplayResolvedPrompt]);
+  }, [
+    timeoutRef,
+    mode,
+    messages,
+    onViewConversation,
+    markAsRead,
+    someUnread,
+    setDisplayResolvedPrompt,
+  ]);
 
   useEffect(() => {
     restartTimeout();
@@ -202,7 +274,12 @@ const useMarkAsRead = ({ mode, messages, onViewConversation, markAsRead, scrollT
 /**
  * Handlers for "Add qoute from consent form"
  */
-const useQuoteFromForm = ({ mode, setMessage, subscribeQuoteChosen, openChooseQuote }) => {
+const useQuoteFromForm = ({
+  mode,
+  setMessage,
+  subscribeQuoteChosen,
+  openChooseQuote,
+}) => {
   const inputRef = useRef();
   const [selectionStart, setSelectionStart] = useState(0);
   const [selectionEnd, setSelectionEnd] = useState(0);
@@ -218,7 +295,14 @@ const useQuoteFromForm = ({ mode, setMessage, subscribeQuoteChosen, openChooseQu
   // Subscription is triggered once a quote is setected and confirmed
   useEffect(() => {
     subscribeQuoteChosen((quote) => {
-      if (quote) setMessage((msg) => `${msg.substr(0, selectionStart)}\`${quote.replace(/\W+/gm, ' ')}\`${msg.substr(selectionEnd)}`);
+      if (quote)
+        setMessage(
+          (msg) =>
+            `${msg.substr(0, selectionStart)}\`${quote.replace(
+              /\W+/gm,
+              ' '
+            )}\`${msg.substr(selectionEnd)}`
+        );
     });
   }, [setMessage, selectionStart, selectionEnd]);
 
@@ -231,7 +315,16 @@ const useQuoteFromForm = ({ mode, setMessage, subscribeQuoteChosen, openChooseQu
   return { inputRef, handleAddQuote };
 };
 
-const Conversation = ({ classes, mode, setMode, conversation, onAddMessage, onViewConversation, openChooseQuote, subscribeQuoteChosen }) => {
+const Conversation = ({
+  classes,
+  mode,
+  setMode,
+  conversation,
+  onAddMessage,
+  onViewConversation,
+  openChooseQuote,
+  subscribeQuoteChosen,
+}) => {
   const {
     message,
     messages,
@@ -244,21 +337,41 @@ const Conversation = ({ classes, mode, setMode, conversation, onAddMessage, onVi
     handleSendMessage,
     markAsRead,
   } = useBasicHandlers({ conversation, onAddMessage });
-  const { fullScreen, dialogContentRef, handleOpen, handleClose, scrollToBottom } = useDialogHandlers({ mode, messages, setMode, resetMessage });
-  const { displayNotification, displayResolvedPrompt, handleResolvedPrompt } = useMarkAsRead({
-    mode,
-    messages,
-    onViewConversation,
-    markAsRead,
+  const {
+    fullScreen,
+    dialogContentRef,
+    handleOpen,
+    handleClose,
     scrollToBottom,
-    handleSendMessage,
+  } = useDialogHandlers({ mode, messages, setMode, resetMessage });
+  const { displayNotification, displayResolvedPrompt, handleResolvedPrompt } =
+    useMarkAsRead({
+      mode,
+      messages,
+      onViewConversation,
+      markAsRead,
+      scrollToBottom,
+      handleSendMessage,
+    });
+  const { inputRef, handleAddQuote } = useQuoteFromForm({
+    mode,
+    setMessage,
+    subscribeQuoteChosen,
+    openChooseQuote,
   });
-  const { inputRef, handleAddQuote } = useQuoteFromForm({ mode, setMessage, subscribeQuoteChosen, openChooseQuote });
 
   return (
     <>
       <Visible when={mode === modes.NONE || mode === modes.MESSENGER}>
-        <Fab color="primary" size="medium" aria-label="conversation" id="help-icon" className={classes.infoIcon} disabled={mode === modes.MESSENGER} onClick={handleOpen}>
+        <Fab
+          color="primary"
+          size="medium"
+          aria-label="conversation"
+          id="help-icon"
+          className={classes.infoIcon}
+          disabled={mode === modes.MESSENGER}
+          onClick={handleOpen}
+        >
           <HelpIcon fontSize="large" />
         </Fab>
       </Visible>
@@ -267,8 +380,13 @@ const Conversation = ({ classes, mode, setMode, conversation, onAddMessage, onVi
         <NewMessagePrompt onOpen={handleOpen} />
       </Visible>
 
-
-      <Dialog open={mode === modes.MESSENGER} fullWidth fullScreen={fullScreen} classes={{paper: classes.dialogPaper}} TransitionComponent={Transition}>
+      <Dialog
+        open={mode === modes.MESSENGER}
+        fullWidth
+        fullScreen={fullScreen}
+        classes={{ paper: classes.dialogPaper }}
+        TransitionComponent={Transition}
+      >
         <DialogTitle className={classes.dialogTitle}>
           <HelpAppBar onClose={handleClose} />
         </DialogTitle>
@@ -279,14 +397,24 @@ const Conversation = ({ classes, mode, setMode, conversation, onAddMessage, onVi
             ))}
           </Visible>
           <Visible when={displayResolvedPrompt}>
-            <ResolvedPrompt onConfirm={handleResolvedPrompt} onCancel={handleResolvedPrompt} />
+            <ResolvedPrompt
+              onConfirm={handleResolvedPrompt}
+              onCancel={handleResolvedPrompt}
+            />
           </Visible>
         </DialogContent>
         <DialogActions>
           <Grid container direction="column" alignItems="center" spacing={1}>
             <Grid item>
-              <Button variant="text" color="secondary" disabled={sending} onClick={handleAddQuote}>
-                <Typography variant="button">Add quote from consent form</Typography>
+              <Button
+                variant="text"
+                color="secondary"
+                disabled={sending}
+                onClick={handleAddQuote}
+              >
+                <Typography variant="button">
+                  Add quote from consent form
+                </Typography>
               </Button>
             </Grid>
             <Visible when={sendingError}>
@@ -296,7 +424,13 @@ const Conversation = ({ classes, mode, setMode, conversation, onAddMessage, onVi
                 </Typography>
               </Grid>
             </Visible>
-            <Grid item container direction="row" alignItems="flex-end" spacing={1}>
+            <Grid
+              item
+              container
+              direction="row"
+              alignItems="flex-end"
+              spacing={1}
+            >
               <Grid item xs>
                 <TextField
                   inputRef={inputRef}
@@ -309,11 +443,20 @@ const Conversation = ({ classes, mode, setMode, conversation, onAddMessage, onVi
                   multiline
                   rowsMax={3}
                   fullWidth
-                  InputProps={{ disableUnderline: true, classes: { root: classes.multiLineInput } }}
+                  InputProps={{
+                    disableUnderline: true,
+                    classes: { root: classes.multiLineInput },
+                  }}
                 />
               </Grid>
               <Grid item>
-                <Fab color="primary" size="medium" aria-label="send" disabled={sending || message.length < 1} onClick={handleSendMessage}>
+                <Fab
+                  color="primary"
+                  size="medium"
+                  aria-label="send"
+                  disabled={sending || message.length < 1}
+                  onClick={handleSendMessage}
+                >
                   <SendIcon />
                 </Fab>
               </Grid>

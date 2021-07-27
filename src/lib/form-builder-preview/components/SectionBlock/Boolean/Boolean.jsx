@@ -1,4 +1,4 @@
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import React from 'react';
@@ -36,11 +36,23 @@ const YesNo = ({ classes, block, readOnly, onChange }) => {
 
   return (
     <div className={classes.root}>
-      <ButtonGroup size="large" color="primary" aria-label="outlined primary button group">
-        <Button onClick={setPositiveAnswer} disabled={readOnly} {...positiveButtonAttributes}>
+      <ButtonGroup
+        size="large"
+        color="primary"
+        aria-label="outlined primary button group"
+      >
+        <Button
+          onClick={setPositiveAnswer}
+          disabled={readOnly}
+          {...positiveButtonAttributes}
+        >
           {block.options.trueValue}
         </Button>
-        <Button onClick={setNegativeAnswer} disabled={readOnly} {...negativeButtonAttributes}>
+        <Button
+          onClick={setNegativeAnswer}
+          disabled={readOnly}
+          {...negativeButtonAttributes}
+        >
           {block.options.falseValue}
         </Button>
       </ButtonGroup>

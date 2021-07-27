@@ -1,11 +1,11 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import UnderlinedIcon from '@material-ui/icons/FormatUnderlined';
 import ItalicIcon from '@material-ui/icons/FormatItalic';
 import TextIcon from '@material-ui/icons/TextFormat';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
-import { FORM_WIDTH } from "../form-builder-styling";
+import { FORM_WIDTH } from '../form-builder-styling';
 
 const styles = (theme) => ({
   root: {
@@ -21,19 +21,31 @@ const styles = (theme) => ({
   },
 });
 
-const TextStyleChanger = ({ classes, onClick, hasUnderline, hasItalic, colored }) => {
+const TextStyleChanger = ({
+  classes,
+  onClick,
+  hasUnderline,
+  hasItalic,
+  colored,
+}) => {
   const renderFormatUnderline = () => {
     return (
-      <IconButton className={classes.button} onClick={(e) => onClick(e, { textDecoration: 'underline' })}>
-        <UnderlinedIcon className={hasUnderline ? classes.selected : ''}/>
+      <IconButton
+        className={classes.button}
+        onClick={(e) => onClick(e, { textDecoration: 'underline' })}
+      >
+        <UnderlinedIcon className={hasUnderline ? classes.selected : ''} />
       </IconButton>
     );
   };
-  
+
   const renderFormatItalic = () => {
     return (
-      <IconButton className={classes.button} onClick={(e) => onClick(e, { fontStyle: 'italic' })}>
-        <ItalicIcon className={hasItalic ? classes.selected : ''}/>
+      <IconButton
+        className={classes.button}
+        onClick={(e) => onClick(e, { fontStyle: 'italic' })}
+      >
+        <ItalicIcon className={hasItalic ? classes.selected : ''} />
       </IconButton>
     );
   };
@@ -41,11 +53,11 @@ const TextStyleChanger = ({ classes, onClick, hasUnderline, hasItalic, colored }
   const renderFormatTextColor = () => {
     return (
       <IconButton className={classes.button}>
-        <TextIcon className={colored ? classes.selected : ''}/>
+        <TextIcon className={colored ? classes.selected : ''} />
       </IconButton>
     );
   };
-  
+
   return (
     <div className={classes.root}>
       <Grid container justify="center" alignItems="center" direction="row">

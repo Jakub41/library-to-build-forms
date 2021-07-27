@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { IconButton, TextField, withStyles } from '@material-ui/core';
+import { IconButton, TextField } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import styles from './glossary-item.styles';
 import Grid from '@material-ui/core/Grid';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -10,7 +11,9 @@ import useEditMode from '../../hooks/useEditMode';
 
 const GlossaryItem = ({ classes, onRemove, onEdit, item, index }) => {
   const inputRef = useRef({});
-  const { isInEditMode, toggleEditMode } = useEditMode(item.term === 'New term');
+  const { isInEditMode, toggleEditMode } = useEditMode(
+    item.term === 'New term'
+  );
 
   const showHide = (isInEditMode) => {
     return { display: isInEditMode ? 'none' : '' };
@@ -52,17 +55,27 @@ const GlossaryItem = ({ classes, onRemove, onEdit, item, index }) => {
   return (
     <Grid container direction="row" className={classes.rowLayout} spacing={0}>
       <Grid item>
-        <Typography className={classes.termTextStyle} variant="body1" style={showHide(isInEditMode)}>
+        <Typography
+          className={classes.termTextStyle}
+          variant="body1"
+          style={showHide(isInEditMode)}
+        >
           {item.term}
         </Typography>
       </Grid>
       <Grid item>{isInEditMode && renderTermInput(item.term)}</Grid>
       <Grid item>
-        <Typography className={classes.explanationTextStyle} variant="body2" style={showHide(isInEditMode)}>
+        <Typography
+          className={classes.explanationTextStyle}
+          variant="body2"
+          style={showHide(isInEditMode)}
+        >
           {item.explanation}
         </Typography>
       </Grid>
-      <Grid item>{isInEditMode && renderExplanationInput(item.explanation)}</Grid>
+      <Grid item>
+        {isInEditMode && renderExplanationInput(item.explanation)}
+      </Grid>
       <Grid item>
         {isInEditMode ? (
           <>
@@ -90,7 +103,10 @@ const GlossaryItem = ({ classes, onRemove, onEdit, item, index }) => {
             </IconButton>
           </>
         ) : (
-          <IconButton style={{ width: 24, height: 24, color: '#000000BF' }} onClick={toggleEditMode}>
+          <IconButton
+            style={{ width: 24, height: 24, color: '#000000BF' }}
+            onClick={toggleEditMode}
+          >
             <MoreVertIcon fontSize="small" size="small" />
           </IconButton>
         )}

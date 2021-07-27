@@ -1,4 +1,5 @@
-import { Grid, IconButton, Typography, withStyles } from '@material-ui/core';
+import { Grid, IconButton, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import CloseIcon from '@material-ui/icons/Close';
 import React from 'react';
 import { useIntl } from 'react-intl';

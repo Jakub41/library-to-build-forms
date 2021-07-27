@@ -3,8 +3,8 @@ import {
   AccordionDetails,
   AccordionSummary,
   createTheme,
-  MuiThemeProvider,
   Paper,
+  ThemeProvider,
   Typography,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -30,6 +30,8 @@ import {
 } from '../lib/form-builder-preview/constants/previewDefaultData.js';
 import { previewReducer } from '../lib/form-builder-preview/usePreview';
 
+const defaultTheme = createTheme();
+
 const config = {
   title: 'FormBuilder/Preview',
 };
@@ -45,11 +47,13 @@ export default config;
 const DefaultPreviewBuilder = (args) => {
   return (
     <div style={{ height: '100vh' }}>
-      <Preview
-        currentUser={currentUser}
-        {...args}
-        onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
-      />
+      <ThemeProvider theme={defaultTheme}>
+        <Preview
+          currentUser={currentUser}
+          {...args}
+          onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
+        />
+      </ThemeProvider>
     </div>
   );
 };
@@ -122,13 +126,15 @@ const LiveChatPreviewBuilder = (args) => {
 
   return (
     <div style={{ height: '100vh' }}>
-      <Preview
-        {...args}
-        onAddMessage={onAddMessage}
-        onViewConversation={onViewConversation}
-        conversation={conversation}
-        onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
-      />
+      <ThemeProvider theme={defaultTheme}>
+        <Preview
+          {...args}
+          onAddMessage={onAddMessage}
+          onViewConversation={onViewConversation}
+          conversation={conversation}
+          onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
+        />
+      </ThemeProvider>
     </div>
   );
 };
@@ -178,11 +184,13 @@ const PreviewBuilder375x800 = (args) => {
         borderRadius: 10,
       }}
     >
-      <Preview
-        currentUser={currentUser}
-        {...args}
-        onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
-      />
+      <ThemeProvider theme={defaultTheme}>
+        <Preview
+          currentUser={currentUser}
+          {...args}
+          onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
+        />
+      </ThemeProvider>
     </div>
   );
 };
@@ -242,11 +250,13 @@ const CustomReducerPreview = (args) => {
     return newState;
   }, []);
   const result = (
-    <Preview
-      initialData={args.form}
-      reducer={reducer}
-      onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
-    />
+    <ThemeProvider theme={defaultTheme}>
+      <Preview
+        initialData={args.form}
+        reducer={reducer}
+        onSubmit={(formWithAnswers) => console.warn(formWithAnswers)}
+      />
+    </ThemeProvider>
   );
   return result;
 };
@@ -286,7 +296,7 @@ const Builder = (args) => {
   const toggle = (key) => () => setExpanded((x) => ({ ...x, [key]: !x[key] }));
 
   return (
-    <MuiThemeProvider theme={createTheme(demoMockTheme)}>
+    <ThemeProvider theme={createTheme(demoMockTheme)}>
       <SectionBlock
         block={block}
         currentUser={currentUser}
@@ -315,7 +325,7 @@ const Builder = (args) => {
           onChange={toggle('updated')}
         />
       </Paper>
-    </MuiThemeProvider>
+    </ThemeProvider>
   );
 };
 

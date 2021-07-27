@@ -1,6 +1,7 @@
-import { Menu, MenuItem, withStyles } from '@material-ui/core';
+import { Menu, MenuItem } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import { withStyles } from '@material-ui/styles';
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { blockTypes } from '../../../constants';
@@ -72,9 +73,8 @@ const InsertBlockDialog = ({ classes, onInsertBlock, mode, blockIndex }) => {
         color="secondary"
         size="small"
         startIcon={<AddIcon />}
-      >
-        Add Block
-      </Button>
+        text={<FormattedMessage defaultMessage="Add Block" />}
+      />
     </>
   );
 };

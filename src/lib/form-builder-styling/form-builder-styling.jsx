@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
@@ -60,7 +60,9 @@ const FormBuilderStyling = ({ classes }) => {
 
   const getFontFamily = (variant) => {
     variant = resolveTypographyVariants(variant);
-    return theme.typography[variant].fontFamily?.split(',')[0].replace(/"/gm, '');
+    return theme.typography[variant].fontFamily
+      ?.split(',')[0]
+      .replace(/"/gm, '');
   };
 
   const resolveTypographyVariants = (variant) => {
@@ -81,8 +83,14 @@ const FormBuilderStyling = ({ classes }) => {
         <Grid item className={classes.gridItemContainer}>
           <Grid container justify="space-between" alignItems="center">
             <Grid item>
-              <div className={classes.colorExampleRoot} style={{ backgroundColor: theme.palette.primary.main }}>
-                <Typography variant="inherit" style={{ color: theme.palette.primary.contrastText }}>
+              <div
+                className={classes.colorExampleRoot}
+                style={{ backgroundColor: theme.palette.primary.main }}
+              >
+                <Typography
+                  variant="inherit"
+                  style={{ color: theme.palette.primary.contrastText }}
+                >
                   Theme Primary color
                 </Typography>
               </div>
@@ -90,8 +98,18 @@ const FormBuilderStyling = ({ classes }) => {
             <Grid item>
               <Grid container alignContent="flex-end" direction="row">
                 {colorPalette.map((c, index) => (
-                  <Grid item key={index} onClick={() => handleOnColorChange('primary', c)} className={classes.gridItemColorBubble}>
-                    <ColorBubble key={index} color={c} size={COLOR_BUBBLES_SIZE} checked={c === getMainColor('primary')} />
+                  <Grid
+                    item
+                    key={index}
+                    onClick={() => handleOnColorChange('primary', c)}
+                    className={classes.gridItemColorBubble}
+                  >
+                    <ColorBubble
+                      key={index}
+                      color={c}
+                      size={COLOR_BUBBLES_SIZE}
+                      checked={c === getMainColor('primary')}
+                    />
                   </Grid>
                 ))}
               </Grid>
@@ -106,9 +124,20 @@ const FormBuilderStyling = ({ classes }) => {
             </Grid>
             <Grid item>
               <Grid container alignItems="flex-end" spacing={2}>
-                <FontStyleChanger fontFamily={getFontFamily(variantsEnum.H4)} onChange={(e) => handleFontStyleChange(e, variantsEnum.H4)} />
-                <FontWeightChanger fontWeight={getFontWeight(variantsEnum.H4)} onChange={(e) => handleOnFontWeightChange(e, variantsEnum.H4)} />
-                <TextStyleChanger {...getTextFormatting(variantsEnum.H4)} onClick={(e, textProps) => handleOnTextStyleChange(variantsEnum.H4, textProps)} />
+                <FontStyleChanger
+                  fontFamily={getFontFamily(variantsEnum.H4)}
+                  onChange={(e) => handleFontStyleChange(e, variantsEnum.H4)}
+                />
+                <FontWeightChanger
+                  fontWeight={getFontWeight(variantsEnum.H4)}
+                  onChange={(e) => handleOnFontWeightChange(e, variantsEnum.H4)}
+                />
+                <TextStyleChanger
+                  {...getTextFormatting(variantsEnum.H4)}
+                  onClick={(e, textProps) =>
+                    handleOnTextStyleChange(variantsEnum.H4, textProps)
+                  }
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -121,9 +150,20 @@ const FormBuilderStyling = ({ classes }) => {
             </Grid>
             <Grid item>
               <Grid container alignItems="flex-end" spacing={2}>
-                <FontStyleChanger fontFamily={getFontFamily(variantsEnum.H6)} onChange={(e) => handleFontStyleChange(e, variantsEnum.H6)} />
-                <FontWeightChanger fontWeight={getFontWeight(variantsEnum.H6)} onChange={(e) => handleOnFontWeightChange(e, variantsEnum.H6)} />
-                <TextStyleChanger {...getTextFormatting(variantsEnum.H6)} onClick={(e, textProps) => handleOnTextStyleChange(variantsEnum.H6, textProps)} />
+                <FontStyleChanger
+                  fontFamily={getFontFamily(variantsEnum.H6)}
+                  onChange={(e) => handleFontStyleChange(e, variantsEnum.H6)}
+                />
+                <FontWeightChanger
+                  fontWeight={getFontWeight(variantsEnum.H6)}
+                  onChange={(e) => handleOnFontWeightChange(e, variantsEnum.H6)}
+                />
+                <TextStyleChanger
+                  {...getTextFormatting(variantsEnum.H6)}
+                  onClick={(e, textProps) =>
+                    handleOnTextStyleChange(variantsEnum.H6, textProps)
+                  }
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -136,11 +176,23 @@ const FormBuilderStyling = ({ classes }) => {
             </Grid>
             <Grid item>
               <Grid container alignItems="flex-end" spacing={2}>
-                <FontStyleChanger fontFamily={getFontFamily(variantsEnum.SUBTITLE1)} onChange={(e) => handleFontStyleChange(e, variantsEnum.SUBTITLE1)} />
-                <FontWeightChanger fontWeight={getFontWeight(variantsEnum.SUBTITLE1)} onChange={(e) => handleOnFontWeightChange(e, variantsEnum.SUBTITLE1)} />
+                <FontStyleChanger
+                  fontFamily={getFontFamily(variantsEnum.SUBTITLE1)}
+                  onChange={(e) =>
+                    handleFontStyleChange(e, variantsEnum.SUBTITLE1)
+                  }
+                />
+                <FontWeightChanger
+                  fontWeight={getFontWeight(variantsEnum.SUBTITLE1)}
+                  onChange={(e) =>
+                    handleOnFontWeightChange(e, variantsEnum.SUBTITLE1)
+                  }
+                />
                 <TextStyleChanger
                   {...getTextFormatting(variantsEnum.SUBTITLE1)}
-                  onClick={(e, textProps) => handleOnTextStyleChange(variantsEnum.SUBTITLE1, textProps)}
+                  onClick={(e, textProps) =>
+                    handleOnTextStyleChange(variantsEnum.SUBTITLE1, textProps)
+                  }
                 />
               </Grid>
             </Grid>
@@ -155,8 +207,16 @@ const FormBuilderStyling = ({ classes }) => {
               </Typography>
             </Grid>
             <Grid item>
-              <Grid container alignItems="flex-end" spacing={2} style={{ paddingRight: FORM_WIDTH * 2 + theme.spacing(1) }}>
-                <FontStyleChanger fontFamily={getFontFamily(variantsEnum.BODY1)} onChange={(e) => handleFontStyleChange(e, variantsEnum.BODY1)} />
+              <Grid
+                container
+                alignItems="flex-end"
+                spacing={2}
+                style={{ paddingRight: FORM_WIDTH * 2 + theme.spacing(1) }}
+              >
+                <FontStyleChanger
+                  fontFamily={getFontFamily(variantsEnum.BODY1)}
+                  onChange={(e) => handleFontStyleChange(e, variantsEnum.BODY1)}
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -168,20 +228,41 @@ const FormBuilderStyling = ({ classes }) => {
               <Button color="primary" size="medium" selected variant="outlined">
                 Button outlined
               </Button>
-              <Button size="medium" color="primary" style={{ marginLeft: '8px' }}>
+              <Button
+                size="medium"
+                color="primary"
+                style={{ marginLeft: '8px' }}
+              >
                 Text button
               </Button>
-              <Button color="primary" size="medium" variant="contained" style={{ marginLeft: '8px' }}>
+              <Button
+                color="primary"
+                size="medium"
+                variant="contained"
+                style={{ marginLeft: '8px' }}
+              >
                 Button contained
               </Button>
             </Grid>
             <Grid item>
               <Grid container alignItems="flex-end" spacing={2}>
-                <FontStyleChanger fontFamily={getFontFamily(variantsEnum.BUTTON)} onChange={(e) => handleFontStyleChange(e, variantsEnum.BUTTON)} />
-                <FontWeightChanger fontWeight={getFontWeight(variantsEnum.BUTTON)} onChange={(e) => handleOnFontWeightChange(e, variantsEnum.BUTTON)} />
+                <FontStyleChanger
+                  fontFamily={getFontFamily(variantsEnum.BUTTON)}
+                  onChange={(e) =>
+                    handleFontStyleChange(e, variantsEnum.BUTTON)
+                  }
+                />
+                <FontWeightChanger
+                  fontWeight={getFontWeight(variantsEnum.BUTTON)}
+                  onChange={(e) =>
+                    handleOnFontWeightChange(e, variantsEnum.BUTTON)
+                  }
+                />
                 <TextStyleChanger
                   {...getTextFormatting(variantsEnum.BUTTON)}
-                  onClick={(e, textProps) => handleOnTextStyleChange(variantsEnum.BUTTON, textProps)}
+                  onClick={(e, textProps) =>
+                    handleOnTextStyleChange(variantsEnum.BUTTON, textProps)
+                  }
                 />
               </Grid>
             </Grid>

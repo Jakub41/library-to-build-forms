@@ -1,5 +1,6 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
+import enMessages from '../../compiled-lang/en.json';
 import apiStyleSheet from '../data/mockApiStylesheet.json';
 import useGetObjectValueOrDefault from '../utils/useGetValueOrDefault';
 import {
@@ -20,7 +21,7 @@ const FormStyler = ({ onChange, theme }) => {
   };
   return (
     <ThemeProvider onSave={handleOnSave} userTheme={remappedTheme}>
-      <IntlProvider defaultLocale="en" locale="en">
+      <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
         <MuiWrapper>
           <FormBuilderStyling />
         </MuiWrapper>

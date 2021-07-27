@@ -1,7 +1,10 @@
-import { Typography, withStyles } from '@material-ui/core';
+import { ThemeProvider, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { IntlProvider, useIntl } from 'react-intl';
+import enMessages from '../../compiled-lang/en.json';
 import FormBuilderPreview from './form-builder-preview';
+import theme from './theme/theme';
 
 const styles = () => ({
   errorMessage: {
@@ -25,4 +28,16 @@ const FormPreview = ({ classes, ...props }) => {
   return <FormBuilderPreview {...props} />;
 };
 
-export default withStyles(styles)(FormPreview);
+const ThemeContextFormPreview = (props) => {
+  const StyledFormPreview = withStyles(styles)(FormPreview);
+
+  return (
+    <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+      <ThemeProvider theme={theme}>
+        <StyledFormPreview {...props} />
+      </ThemeProvider>
+    </IntlProvider>
+  );
+};
+
+export default ThemeContextFormPreview;

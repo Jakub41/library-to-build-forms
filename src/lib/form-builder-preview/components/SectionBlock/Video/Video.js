@@ -1,4 +1,5 @@
-import { Typography, withStyles } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import Visible from '../../Visible';
 import styles from './Video.styles';
@@ -10,7 +11,10 @@ const Video = ({ block, onChange, classes }) => {
   return (
     <>
       <video style={{ width: '100%' }} controls onEnded={handleVideoEnd}>
-        {block.items && block.items.map((item, i) => <source key={i} src={item.source} type={item.type} />)}
+        {block.items &&
+          block.items.map((item, i) => (
+            <source key={i} src={item.source} type={item.type} />
+          ))}
         Your browser does not support video.
       </video>
       <Visible when={block.options?.note}>

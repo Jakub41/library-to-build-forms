@@ -1,7 +1,11 @@
-import { withStyles, LinearProgress } from '@material-ui/core';
+import { LinearProgress } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/styles';
 import React, { useCallback, useState } from 'react';
-import HttpUtil from '../../../utils/httpUtil';
+import { blockTypeNames, blockTypes } from '../../../constants';
+import matchMimeTypesRegex from '../../../utils/matchMimeTypesRegex';
+import StorageUtil from '../../../utils/storageUtil';
 import BlockWrapper from '../../section/section-block/block-wrapper';
 import BlockMenu from '../block-menu';
 import DropZone from '../dropzone';
@@ -12,12 +16,15 @@ import ImageContent from './components/image-content';
 import PdfContent from './components/pdf-content';
 import VideoContent from './components/video-content';
 import styles from './media-content.styles';
-import matchMimeTypesRegex from '../../../utils/matchMimeTypesRegex';
-import Typography from '@material-ui/core/Typography';
-import { blockTypes, blockTypeNames } from '../../../constants';
-import StorageUtil from '../../../utils/storageUtil';
 
-const MediaContent = ({ block, onChange, onDelete, onDuplicate, draggableIndicator, classes }) => {
+const MediaContent = ({
+  block,
+  onChange,
+  onDelete,
+  onDuplicate,
+  draggableIndicator,
+  classes,
+}) => {
   const [isUploading, setIsUploading] = useState(false);
   const getBlockTypeBasedOnFileType = useCallback((fileType) => {
     const fileData = matchMimeTypesRegex(fileType);
@@ -60,7 +67,13 @@ const MediaContent = ({ block, onChange, onDelete, onDuplicate, draggableIndicat
       data.append('files', acceptedFiles[0]);
       const uploadResult = await StorageUtil.upload(data);
       console.log(uploadResult);
-      onChange({ ...block, type, items: [{ source: uploadResult.Location, key, fileId: uploadResult.fileId }] });
+      onChange({
+        ...block,
+        type,
+        items: [
+          { source: uploadResult.Location, key, fileId: uploadResult.fileId },
+        ],
+      });
       setIsUploading(false);
     } catch (err) {
       console.warn(err);
@@ -86,9 +99,14 @@ const MediaContent = ({ block, onChange, onDelete, onDuplicate, draggableIndicat
       rightHeader={
         <>
           <Grid item>
-            <Typography variant="overline">{blockTypeNames[block.type]}</Typography>
+            <Typography variant="overline">
+              {blockTypeNames[block.type]}
+            </Typography>
           </Grid>
-          <BlockMenu onDelete={() => onDelete(block)} onDuplicate={() => onDuplicate(block)} />
+          <BlockMenu
+            onDelete={() => onDelete(block)}
+            onDuplicate={() => onDuplicate(block)}
+          />
         </>
       }
       draggableIndicator={draggableIndicator}
@@ -98,7 +116,10 @@ const MediaContent = ({ block, onChange, onDelete, onDuplicate, draggableIndicat
           <Visible when={isUploading}>
             <LinearProgress />
           </Visible>
-          <Visible when={block.items?.length} fallBack={<DropZone onDrop={onDropWithS3} />}>
+          <Visible
+            when={block.items?.length}
+            fallBack={<DropZone onDrop={onDropWithS3} />}
+          >
             {renderMedia(block.type)}
           </Visible>
         </Grid>

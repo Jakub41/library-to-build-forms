@@ -1,4 +1,5 @@
-import { TextField, withStyles } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import styles from './NumberBlock.styles';
 
@@ -20,7 +21,10 @@ const NumberBlock = ({ block, onChange, readOnly }) => {
         color="secondary"
         label={`Number in range ${block.options.minValue} - ${block.options.maxValue}`}
         value={block.answer || ''}
-        error={block.answer < block.options.minValue || block.answer > block.options.maxValue}
+        error={
+          block.answer < block.options.minValue ||
+          block.answer > block.options.maxValue
+        }
         type="number"
         onChange={handleChange}
         disabled={readOnly}

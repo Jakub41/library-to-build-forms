@@ -1,4 +1,5 @@
-import { Backdrop, Popover, withStyles } from '@material-ui/core';
+import { Backdrop, Popover } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import styles from './InfoNote.styles';

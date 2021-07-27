@@ -1,4 +1,5 @@
-import { Checkbox, Grid, TextField, Typography, withStyles } from '@material-ui/core';
+import { Checkbox, Grid, TextField, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React, { useCallback } from 'react';
 import Visible from '../../Visible';
 import styles from './MultiSelect.styles';
@@ -56,8 +57,13 @@ const MultiSelect = ({ block, onChange, readOnly, classes }) => {
             />
           </Grid>
           <Grid item className={classes.labelContainer}>
-            <label htmlFor={`${block.key}-${item.key}`} className={classes.label}>
-              <Typography variant="body1">{item.valueWithExplanations}</Typography>
+            <label
+              htmlFor={`${block.key}-${item.key}`}
+              className={classes.label}
+            >
+              <Typography variant="body1">
+                {item.valueWithExplanations}
+              </Typography>
             </label>
           </Grid>
         </Grid>

@@ -1,11 +1,12 @@
-import { Input, withStyles } from '@material-ui/core';
+import { Input } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import styles from './dropzone.styles';
 
 const DropZone = ({ classes, onDrop }) => {
@@ -46,9 +47,12 @@ const DropZone = ({ classes, onDrop }) => {
           </>
         )}
         <Grid item>
-          <Button className={classes.button} variant="outlined" color="primary">
-            {intl.formatMessage({ defaultMessage: 'Browse files' })}
-          </Button>
+          <Button
+            className={classes.button}
+            variant="outlined"
+            color="primary"
+            text={<FormattedMessage defaultMessage="Browse files" />}
+          />
         </Grid>
         <Input inputProps={{ ...getInputProps(), multiple: false }} />
       </Grid>

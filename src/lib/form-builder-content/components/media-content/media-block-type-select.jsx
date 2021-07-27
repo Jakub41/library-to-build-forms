@@ -1,8 +1,8 @@
-import { withStyles } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import { withStyles } from '@material-ui/styles';
 import React, { useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import { blockTypeNames, blockTypes } from '../../../constants';

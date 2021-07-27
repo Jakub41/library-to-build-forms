@@ -1,6 +1,6 @@
-import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/styles';
 import { Viewer } from '@toast-ui/react-editor';
 import React from 'react';
 import { useIntl } from 'react-intl';

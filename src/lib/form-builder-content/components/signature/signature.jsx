@@ -1,10 +1,5 @@
-import {
-  FormControl,
-  Grid,
-  MenuItem,
-  Select,
-  withStyles,
-} from '@material-ui/core';
+import { FormControl, Grid, MenuItem, Select } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useQuestionDataChangeManager } from '../../hooks';
@@ -27,10 +22,8 @@ const Signature = ({
   const intl = useIntl();
   const [isCounterSignee, setIsCounterSignee] = useState(false);
 
-  const {
-    handleTextOptionChange,
-    handleRecipientChange,
-  } = useQuestionDataChangeManager(block, onChange);
+  const { handleTextOptionChange, handleRecipientChange } =
+    useQuestionDataChangeManager(block, onChange);
 
   const handleSelectChange = (e) => {
     setIsCounterSignee(e.target?.value === 'COUNTERSIGNEE');

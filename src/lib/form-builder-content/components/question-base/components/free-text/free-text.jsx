@@ -1,10 +1,6 @@
-import {
-  Checkbox,
-  FormControlLabel,
-  Typography,
-  withStyles,
-} from '@material-ui/core';
+import { Checkbox, FormControlLabel, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { textLengthCap } from '../../../../../constants';
@@ -14,10 +10,8 @@ import { ItemInput } from '../../../single-line-input/single-line-input';
 import styles from './free-text.styles';
 
 const FreeText = ({ classes, block, onChange }) => {
-  const {
-    handleCheckboxOptionChange,
-    handleTextOptionChange,
-  } = useQuestionDataChangeManager(block, onChange);
+  const { handleCheckboxOptionChange, handleTextOptionChange } =
+    useQuestionDataChangeManager(block, onChange);
   const intl = useIntl();
 
   return (

@@ -1,12 +1,11 @@
 import { Button, Grid } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import React, { useState } from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { Document, Page } from 'react-pdf';
 import styles from './pdf-content.styles';
 
 const PdfContent = ({ classes, block, onChange }) => {
-  const intl = useIntl();
   const [currentPage, setCurrentPage] = useState(1);
   const [pagesCount, setPagesCount] = useState(1);
   const handleRemoveVideo = () => {
@@ -48,11 +47,8 @@ const PdfContent = ({ classes, block, onChange }) => {
               title="Previous"
               onClick={handlePreviousPage}
               disabled={currentPage === 1}
-            >
-              {intl.formatMessage({
-                defaultMessage: 'Previous',
-              })}
-            </Button>
+              text={<FormattedMessage defaultMessage="Remove Photo" />}
+            />
           </Grid>
           <Grid item>
             <Button
@@ -63,11 +59,8 @@ const PdfContent = ({ classes, block, onChange }) => {
               title="Next"
               onClick={handleNextPage}
               disabled={currentPage === pagesCount}
-            >
-              {intl.formatMessage({
-                defaultMessage: 'Next',
-              })}
-            </Button>
+              text={<FormattedMessage defaultMessage="Next" />}
+            />
           </Grid>
           <Grid item>
             <Button
@@ -76,11 +69,8 @@ const PdfContent = ({ classes, block, onChange }) => {
               color="primary"
               onClick={handleRemoveVideo}
               title="Remove File"
-            >
-              {intl.formatMessage({
-                defaultMessage: 'Remove File',
-              })}
-            </Button>
+              text={<FormattedMessage defaultMessage="Remove file" />}
+            />
           </Grid>
         </Grid>
       </Grid>

@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useQuestionDataChangeManager } from '../../../../hooks';
 import { NoteInput } from '../../../single-line-input/single-line-input';
 import styles from './audio-content.styles';
@@ -45,11 +45,8 @@ const AudioContent = ({ classes, block, onChange }) => {
           color="primary"
           onClick={handleRemove}
           title="Remove Audio"
-        >
-          {intl.formatMessage({
-            defaultMessage: 'Remove Audio',
-          })}
-        </Button>
+          text={<FormattedMessage defaultMessage="Remove Audio" />}
+        />
         <FormControlLabel
           control={
             <Checkbox

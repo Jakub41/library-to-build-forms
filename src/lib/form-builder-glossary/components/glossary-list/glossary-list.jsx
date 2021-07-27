@@ -1,6 +1,6 @@
-import { withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import GlossaryItem from '../glossary-item/glossary-item';

@@ -1,8 +1,9 @@
-import { CssBaseline, MuiThemeProvider, withStyles } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 import { pdfjs } from 'react-pdf';
-import { getMessages } from '../../languages';
+import enMessages from '../../compiled-lang/en.json';
 import emptyData from '../data/mockData.json';
 import roles from '../utils/defaultRoles';
 import useGetObjectValueOrDefault from '../utils/useGetValueOrDefault';
@@ -11,7 +12,7 @@ import './fonts.css';
 import StateReducerFormBuilderPropTypes from './form-builder-content-types';
 import styles from './form-builder-content.styles';
 import Section from './section';
-import muiTheme from './theme/muiTheme';
+import theme from './theme/theme';
 import useBuilder, { builderReducer } from './useBuilder';
 
 // Enable pdf loading
@@ -36,19 +37,18 @@ const FormBuilderContent = ({ data, dispatch, classes, signatureOptions }) => (
 
 const ThemedFormBuilder = withStyles(styles)(FormBuilderContent);
 
-const ThemeContextFormBuilder = async({ data, dispatch, signatureOptions }) => { 
-  const [messages] = await getMessages();
+const ThemeContextFormBuilder = ({ data, dispatch, signatureOptions }) => {
   return (
-    <MuiThemeProvider theme={muiTheme}>
-      <CssBaseline />
-      <IntlProvider messages={messages} defaultLocale="en" locale="en">
+    <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
         <ThemedFormBuilder
           data={data}
           dispatch={dispatch}
           signatureOptions={signatureOptions}
         />
-      </IntlProvider>
-    </MuiThemeProvider>
+      </ThemeProvider>
+    </IntlProvider>
   );
 };
 

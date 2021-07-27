@@ -1,9 +1,10 @@
-import { Paper, Typography, withStyles } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import React from "react";
-import SectionMenu from "../section-menu";
-import { HeadingInput } from "../single-line-input/single-line-input";
-import styles from "./page-header.styles";
+import { Paper, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
+import Grid from '@material-ui/core/Grid';
+import React from 'react';
+import SectionMenu from '../section-menu';
+import { HeadingInput } from '../single-line-input/single-line-input';
+import styles from './page-header.styles';
 
 const PageHeader = ({ section, index, onChange, onDelete, classes }) => {
   const onChangeTitleHandle = ({ target }) => {
@@ -22,7 +23,7 @@ const PageHeader = ({ section, index, onChange, onDelete, classes }) => {
           <Typography variant="overline">Page {index + 1} Heading</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div style={{ display: "flex", flexDirection: "row-reverse" }}>
+          <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
             <SectionMenu onDelete={() => onDelete(section)} />
           </div>
         </Grid>

@@ -1,11 +1,6 @@
-import {
-  Box,
-  Checkbox,
-  FormControlLabel,
-  Typography,
-  withStyles,
-} from '@material-ui/core';
+import { Box, Checkbox, FormControlLabel, Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/styles';
 import React, { useEffect, useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import SigPad from 'signature_pad';
@@ -103,10 +98,10 @@ const Signature = ({ classes, block, onChange, readOnly, currentUser }) => {
     [currentUser, block]
   );
 
-  const isCheckboxDisabled = useMemo(() => !isOwnSignature || readOnly, [
-    isOwnSignature,
-    readOnly,
-  ]);
+  const isCheckboxDisabled = useMemo(
+    () => !isOwnSignature || readOnly,
+    [isOwnSignature, readOnly]
+  );
 
   const isSignatureEnabled = useMemo(() => {
     return (

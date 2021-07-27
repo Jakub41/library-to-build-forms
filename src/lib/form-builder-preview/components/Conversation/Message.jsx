@@ -1,6 +1,10 @@
-import { Typography, withStyles } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React, { useMemo } from 'react';
-import { conversationMemberTypes, conversationMessageStatuses } from '../../constants/constants';
+import {
+  conversationMemberTypes,
+  conversationMessageStatuses,
+} from '../../constants/constants';
 import HtmlRender from '../HtmlRender/HtmlRender';
 import styles from './Message.styles';
 
@@ -11,7 +15,11 @@ const toHtml = (text) =>
     .split('`')
     .reduce(
       (acc, fragment, index, fragments) =>
-        `${acc}${index % 2 === 0 ? `${index > 0 ? '`</mark>' : ''}${fragment}` : `${fragments.length > index + 1 ? '<mark>' : ''}\`${fragment}`}`,
+        `${acc}${
+          index % 2 === 0
+            ? `${index > 0 ? '`</mark>' : ''}${fragment}`
+            : `${fragments.length > index + 1 ? '<mark>' : ''}\`${fragment}`
+        }`,
       ''
     );
 
@@ -20,8 +28,13 @@ const Message = ({ classes, message }) => {
     () =>
       [
         classes.root,
-        message.author.memberType === conversationMemberTypes.user ? classes.fromUser : classes.fromRecipient,
-        message.author.memberType === conversationMemberTypes.user && message.status === conversationMessageStatuses.pending ? classes.unread : '',
+        message.author.memberType === conversationMemberTypes.user
+          ? classes.fromUser
+          : classes.fromRecipient,
+        message.author.memberType === conversationMemberTypes.user &&
+        message.status === conversationMessageStatuses.pending
+          ? classes.unread
+          : '',
       ].join(' '),
     [message.status, message.author.memberType]
   );

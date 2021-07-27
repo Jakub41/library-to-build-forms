@@ -1,13 +1,9 @@
-import {
-  FormControlLabel,
-  Paper,
-  Typography,
-  withStyles
-} from '@material-ui/core';
+import { FormControlLabel, Paper, Typography } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 import useDebounce from '../../hooks/useDebounce';
 import InsertBlockDialog from '../../section/insert-block-dialog/insert-block-dialog';
 import modes from '../../section/insert-block-dialog/insert-block-dialog.static';
@@ -83,7 +79,9 @@ const QuestionnaireHeader = ({ data, dispatch, classes }) => {
             </Grid>
             <Grid item className={classes.gridItemContainer}>
               <QuestionnaireHeadingInput
-                label={<FormattedMessage defaultMessage="Add heading" />}
+                label={intl.formatMessage({
+                  defaultMessage: 'Add heading',
+                })}
                 name="title"
                 onChange={setValueWithTarget}
                 value={value}

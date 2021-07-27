@@ -1,4 +1,5 @@
-import { Grid, withStyles } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import Fab from '@material-ui/core/Fab';
 import Typography from '@material-ui/core/Typography';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -57,13 +58,26 @@ const Pdf = ({ block, onChange, classes }) => {
       <div ref={containerRef}>
         <div>
           <Visible when={block.items[0].source} fallBack="Loading PDF">
-            <Document file={block.items[0].source} onLoadSuccess={onDocumentLoadSuccess}>
-              <Page ref={pageRef} pageNumber={currentPage} width={pdfWidth} height={220} />
+            <Document
+              file={block.items[0].source}
+              onLoadSuccess={onDocumentLoadSuccess}
+            >
+              <Page
+                ref={pageRef}
+                pageNumber={currentPage}
+                width={pdfWidth}
+                height={220}
+              />
             </Document>
           </Visible>
         </div>
         <div className={classes.footer}>
-          <Grid container direction="row" justify="space-between" alignItems="center">
+          <Grid
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="center"
+          >
             <Fab onClick={handlePreviousPage} disabled={currentPage === 1}>
               <ChevronLeftIcon />
             </Fab>

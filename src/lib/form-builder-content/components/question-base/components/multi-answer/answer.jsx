@@ -1,9 +1,10 @@
-import { Box, withStyles } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import InfoIcon from '@material-ui/icons/Info';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import useDebounce from '../../../../hooks/useDebounce';

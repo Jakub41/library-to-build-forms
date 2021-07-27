@@ -2,11 +2,10 @@ import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/styles';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import styles from './image-content.styles';
 
 const ImageContent = ({ classes, block, onChange }) => {
-  const intl = useIntl();
   const handleRemoveVideo = () => {
     const updated = { ...block, items: [] };
     onChange(updated);
@@ -29,11 +28,8 @@ const ImageContent = ({ classes, block, onChange }) => {
             color="primary"
             onClick={handleRemoveVideo}
             title="Remove Video"
-          >
-            {intl.formatMessage({
-              defaultMessage: 'Remove Photo',
-            })}
-          </Button>
+            text={<FormattedMessage defaultMessage="Remove Photo" />}
+          />
         </Grid>
       </Grid>
     </div>

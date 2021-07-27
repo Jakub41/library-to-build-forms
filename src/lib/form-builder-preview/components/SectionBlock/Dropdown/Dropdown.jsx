@@ -1,4 +1,5 @@
-import { FormControl, MenuItem, Select, withStyles } from '@material-ui/core';
+import { FormControl, MenuItem, Select } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React, { useCallback } from 'react';
 import styles from './Dropdown.styles';
 
@@ -15,7 +16,12 @@ const Dropdown = ({ block, onChange, readOnly, classes }) => {
 
   return (
     <FormControl color="secondary" fullWidth={true} variant="filled">
-      <Select value={block.answer} onChange={({ target }) => setAnswer(target.value)} inputProps={{ classes: { root: classes.inputRoot } }} disabled={readOnly}>
+      <Select
+        value={block.answer}
+        onChange={({ target }) => setAnswer(target.value)}
+        inputProps={{ classes: { root: classes.inputRoot } }}
+        disabled={readOnly}
+      >
         {block.items.map((item) => (
           <MenuItem key={item.key} value={item.key}>
             {item.valueWithExplanations}

@@ -1,4 +1,5 @@
-import { Typography, withStyles } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import React, { useEffect } from 'react';
@@ -48,13 +49,26 @@ const ScaleBlock = ({ block, onChange, readOnly, classes }) => {
     for (let index = min; index <= max; index++) {
       if (block.answer === index) {
         buttons.push(
-          <Button variant="contained" color="primary" style={buttonStyle} key={index} disabled={readOnly}>
+          <Button
+            variant="contained"
+            color="primary"
+            style={buttonStyle}
+            key={index}
+            disabled={readOnly}
+          >
             {index}
           </Button>
         );
       } else {
         buttons.push(
-          <Button onClick={handleButtonClick} variant="outlined" color="primary" style={buttonStyle} key={index} disabled={readOnly}>
+          <Button
+            onClick={handleButtonClick}
+            variant="outlined"
+            color="primary"
+            style={buttonStyle}
+            key={index}
+            disabled={readOnly}
+          >
             {index}
           </Button>
         );

@@ -1,4 +1,4 @@
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 const styles = (theme) => ({
   root: {

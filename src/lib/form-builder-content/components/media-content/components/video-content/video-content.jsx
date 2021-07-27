@@ -7,17 +7,15 @@ import {
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/styles';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useQuestionDataChangeManager } from '../../../../hooks';
 import { NoteInput } from '../../../single-line-input/single-line-input';
 import styles from './video-content.styles';
 
 const VideoContent = ({ classes, block, onChange }) => {
   const intl = useIntl();
-  const {
-    handleTextOptionChange,
-    handleCheckboxOptionChange,
-  } = useQuestionDataChangeManager(block, onChange);
+  const { handleTextOptionChange, handleCheckboxOptionChange } =
+    useQuestionDataChangeManager(block, onChange);
 
   const handleRemoveVideo = () => {
     const updated = { ...block, items: [] };
@@ -52,11 +50,8 @@ const VideoContent = ({ classes, block, onChange }) => {
               color="primary"
               onClick={handleRemoveVideo}
               title="Remove Video"
-            >
-              {intl.formatMessage({
-                defaultMessage: 'Remove Video',
-              })}
-            </Button>
+              text={<FormattedMessage defaultMessage="Remove Video" />}
+            />
           </Grid>
           <Grid item>
             <div>

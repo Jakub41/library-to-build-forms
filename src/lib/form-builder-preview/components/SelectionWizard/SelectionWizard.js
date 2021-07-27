@@ -1,4 +1,5 @@
-import { Button, Grid, Typography, withStyles } from '@material-ui/core';
+import { Button, Grid, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import HelpAppBar from '../HelpAppBar/HelpAppBar';

@@ -1,9 +1,9 @@
-import { withStyles } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import Divider from '@material-ui/core/Divider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/styles';
 import React, { useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import { blockTypes } from '../../../constants';
@@ -17,11 +17,8 @@ import styles from './input-wrapper.styles';
 const excludedFooterForTypes = [blockTypes.textBlock, blockTypes.signature];
 
 const InputWrapper = ({ block, onChange, children, classes }) => {
-  const {
-    onChangeTitleHandle,
-    handleEditorUpdate,
-    onCheckOptional,
-  } = useQuestionDataChangeManager(block, onChange);
+  const { onChangeTitleHandle, handleEditorUpdate, onCheckOptional } =
+    useQuestionDataChangeManager(block, onChange);
   const { value, setValueWithTarget } = useDebounce(block.title, 200, {
     onChangeWithTarget: onChangeTitleHandle,
   });

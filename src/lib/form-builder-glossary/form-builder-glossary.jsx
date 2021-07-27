@@ -2,14 +2,15 @@ import {
   Box,
   CssBaseline,
   Grid,
-  MuiThemeProvider,
+  ThemeProvider,
   Typography,
-  withStyles,
 } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import { withStyles } from '@material-ui/styles';
 import React, { useCallback, useMemo } from 'react';
 import { IntlProvider } from 'react-intl';
+import enMessages from '../../compiled-lang/en.json';
 import emptyForm from '../data/mockData.json';
 import useGetObjectValueOrDefault from '../utils/useGetValueOrDefault';
 import { cleanCopy, mapApiFormatToLocal } from '../utils/utils';
@@ -19,7 +20,7 @@ import './fonts.css';
 import FormBuilderGlossaryTypes from './form-builder-glossary-types';
 import styles from './form-builder-glossary.styles';
 import useHighlight from './hooks/useHighlight';
-import muiTheme from './theme/muiTheme';
+import theme from './theme/theme';
 
 const FormBuilderGlossary = ({
   classes,
@@ -68,70 +69,80 @@ const FormBuilderGlossary = ({
   }, [onAddNewGlossaryTerm]);
 
   return (
-    <MuiThemeProvider theme={muiTheme}>
+    <>
       <CssBaseline />
-      <IntlProvider defaultLocale="en" locale="en">
-        <div className={classes.root}>
-          <Box width={{ xs: '100%', md: '80%' }} className={classes.container}>
+      <div className={classes.root}>
+        <Box width={{ xs: '100%', md: '80%' }} className={classes.container}>
+          <Grid
+            container
+            className={classes.root}
+            spacing={0}
+            style={{ alignSelf: 'center' }}
+          >
             <Grid
-              container
-              className={classes.root}
-              spacing={0}
-              style={{ alignSelf: 'center' }}
+              item
+              style={{ width: '552px' }}
+              className={classes.gridItemContainer}
+            >
+              <ContextMenu handleContextMenuClick={onHandleContextMenuClick}>
+                <div id="glossary-text">
+                  <Typography className={classes.textArea}>{text}</Typography>
+                </div>
+              </ContextMenu>
+            </Grid>
+            <Divider
+              variant="middle"
+              orientation="vertical"
+              className={classes.divider}
+              flexItem
+            />
+            <Grid
+              item
+              style={{ width: '552px' }}
+              className={classes.gridItemContainer}
             >
               <Grid
-                item
-                style={{ width: '552px' }}
-                className={classes.gridItemContainer}
+                direction="column"
+                container
+                justify="center"
+                alignContent="center"
+                alignItems="center"
               >
-                <ContextMenu handleContextMenuClick={onHandleContextMenuClick}>
-                  <div id="glossary-text">
-                    <Typography className={classes.textArea}>{text}</Typography>
-                  </div>
-                </ContextMenu>
-              </Grid>
-              <Divider
-                variant="middle"
-                orientation="vertical"
-                className={classes.divider}
-                flexItem
-              />
-              <Grid
-                item
-                style={{ width: '552px' }}
-                className={classes.gridItemContainer}
-              >
-                <Grid
-                  direction="column"
-                  container
-                  justify="center"
-                  alignContent="center"
-                  alignItems="center"
-                >
-                  <Grid item className={classes.header}>
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      onClick={handleAddNewGlossary}
-                    >
-                      new glossary term
-                    </Button>
-                  </Grid>
-                  <GlossaryList
-                    onRemove={handleRemoveGlossary}
-                    onEdit={handleOnChangeGlossary}
-                    items={items}
-                  />
+                <Grid item className={classes.header}>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={handleAddNewGlossary}
+                  >
+                    new glossary term
+                  </Button>
                 </Grid>
+                <GlossaryList
+                  onRemove={handleRemoveGlossary}
+                  onEdit={handleOnChangeGlossary}
+                  items={items}
+                />
               </Grid>
             </Grid>
-          </Box>
-        </div>
-      </IntlProvider>
-    </MuiThemeProvider>
+          </Grid>
+        </Box>
+      </div>
+    </>
   );
 };
 
 FormBuilderGlossary.propTypes = FormBuilderGlossaryTypes;
 
-export default withStyles(styles)(FormBuilderGlossary);
+const ThemeContextFormBuilderGlossary = (props) => {
+  const StyledFormBuilder = withStyles(styles)(FormBuilderGlossary);
+
+  return (
+    <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+      <ThemeProvider theme={theme}>
+        <StyledFormBuilder {...props} />
+      </ThemeProvider>
+    </IntlProvider>
+  );
+};
+
+export default ThemeContextFormBuilderGlossary;

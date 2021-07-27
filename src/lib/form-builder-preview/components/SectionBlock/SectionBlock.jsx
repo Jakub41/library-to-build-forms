@@ -1,4 +1,5 @@
-import { Typography, withStyles } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import { Viewer } from '@toast-ui/react-editor';
 import React, { useEffect } from 'react';
 import { blockTypes } from '../../../constants';
@@ -43,20 +44,42 @@ const components = {
   [blockTypes.pdf]: Pdf,
 };
 
-const SectionBlock = ({ classes, block, onChange, currentUser, theme, readOnly }) => {
+const SectionBlock = ({
+  classes,
+  block,
+  onChange,
+  currentUser,
+  theme,
+  readOnly,
+}) => {
   const options = block.options || {};
   const Component = components[block.type];
 
   return (
-    <div className={`${classes.root} section-block-root ${options.isHighlighted ? classes.highlight : ''}`}>
+    <div
+      className={`${classes.root} section-block-root ${
+        options.isHighlighted ? classes.highlight : ''
+      }`}
+    >
       <style>{getMarkdownCss('section-block-root', theme)}</style>
       <div>
-        <Typography variant="subtitle1">{block.titleWithExplanations}</Typography>
+        <Typography variant="subtitle1">
+          {block.titleWithExplanations}
+        </Typography>
       </div>
       <div className={classes.bodyContainer}>
-        <Viewer frontMatter={true} initialValue={block.bodyWithExplanations} initialEditType="markdown" />
+        <Viewer
+          frontMatter={true}
+          initialValue={block.bodyWithExplanations}
+          initialEditType="markdown"
+        />
       </div>
-      <Component block={block} onChange={onChange} currentUser={currentUser} readOnly={readOnly} />
+      <Component
+        block={block}
+        onChange={onChange}
+        currentUser={currentUser}
+        readOnly={readOnly}
+      />
     </div>
   );
 };

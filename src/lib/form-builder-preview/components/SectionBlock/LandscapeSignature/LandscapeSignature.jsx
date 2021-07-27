@@ -1,4 +1,5 @@
-import { Typography, withStyles } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React, { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import Visible from '../../Visible';

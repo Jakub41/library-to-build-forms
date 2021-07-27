@@ -1,4 +1,5 @@
-import { Button, Typography, withStyles } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import styles from './ResolvedPrompt.styles';

@@ -1,8 +1,8 @@
-import { withStyles } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { useQuestionDataChangeManager } from '../../../../hooks';
@@ -12,22 +12,18 @@ import styles from './boolean-input-item.styles';
 
 const BooleanInputItem = ({ block, onChange, classes }) => {
   const intl = useIntl();
-  const {
-    handleCheckboxOptionChange,
-    handleTextOptionChange,
-  } = useQuestionDataChangeManager(block, onChange);
-  const {
-    value: trueValue,
-    setValueWithTarget: setTrueValue,
-  } = useDebounce(block.options.trueValue, 200, {
-    onChangeWithTarget: handleTextOptionChange,
-  });
-  const {
-    value: falseValue,
-    setValueWithTarget: setFalseValue,
-  } = useDebounce(block.options.falseValue, 200, {
-    onChangeWithTarget: handleTextOptionChange,
-  });
+  const { handleCheckboxOptionChange, handleTextOptionChange } =
+    useQuestionDataChangeManager(block, onChange);
+  const { value: trueValue, setValueWithTarget: setTrueValue } = useDebounce(
+    block.options.trueValue,
+    200,
+    { onChangeWithTarget: handleTextOptionChange }
+  );
+  const { value: falseValue, setValueWithTarget: setFalseValue } = useDebounce(
+    block.options.falseValue,
+    200,
+    { onChangeWithTarget: handleTextOptionChange }
+  );
 
   return (
     <>

@@ -1,4 +1,5 @@
-import { Box, Button, Dialog, Typography, withStyles } from '@material-ui/core';
+import { Box, Button, Dialog, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import styles from './WarningDialog.styles';
