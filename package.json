@@ -34,7 +34,7 @@
   "dependencies": {
     "@formatjs/intl-pluralrules": "^4.1.0",
     "@formatjs/intl-relativetimeformat": "^9.2.0",
-    "@toast-ui/react-editor": "^2.5.3",
+    "@toast-ui/react-editor": "^3.0.0",
     "codemirror": "^5.62.0",
     "prop-types": "^15.7.2",
     "react-beautiful-dnd": "^13.1.0",
