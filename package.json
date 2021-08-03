@@ -54,8 +54,12 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -o ./dist/ -s public",
     "languages:build": "yarn extract && yarn compile && rm -rf ./lang > /dev/null",
-    "extract": "formatjs extract 'src/**/*.{ts,tsx,js,jsx}' --out-file lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6]",
-    "compile": "formatjs compile lang/en.json --ast --out-file src/compiled-lang/en.json"
+    "extract": "formatjs extract 'src/**/*.{ts,tsx,js,jsx}' --out-file lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6] --format transifex",
+    "compile": "formatjs compile lang/en.json --ast --out-file src/compiled-lang/en.json transifex --format transifex",
+    "compile:batch": "formatjs compile-folder --ast lang src/compiled-lang/ --format transifex",
+    "languages:translations": "languages:push && languages:pull",
+    "languages:push": "tx push --source",
+    "languages:pull": "tx pull --all"
   },
   "eslintConfig": {
     "extends": [

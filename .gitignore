@@ -42,5 +42,5 @@ dist/
 jsconfig.json
 /.eslintcache
 locales
-compiled-lang/
 lang/
+.tx/
