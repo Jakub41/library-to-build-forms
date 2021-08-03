@@ -1,5 +1,5 @@
 {
-  "name": "econsent-form-builder",
+  "name": "form-builder",
   "version": "0.6.54",
   "lang": "./src/compiled-lang",
   "supportedLocales": [

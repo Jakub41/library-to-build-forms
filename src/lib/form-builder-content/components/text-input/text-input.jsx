@@ -6,7 +6,7 @@ import React, { useRef } from 'react';
 import useDebounce from '../../hooks/useDebounce';
 import './text-input.css';
 
-const toolbarItems = ['italic', 'bold', 'ul', 'ol'];
+const toolbarItems = [['italic', 'bold', 'ul', 'ol']];
 
 const TextInput = ({ value, label, onChange, ...rest }) => {
   const editor = useRef();
