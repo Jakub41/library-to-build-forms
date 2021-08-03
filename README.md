@@ -24,6 +24,7 @@ The project doesn't start with `yarn start` above instruction are the way!
 
 ## To do
 
+- [ ] Use [transifex](https://www.transifex.com/) as translate vendor for Formatjs and apply the CLI [#builtin-formatters](https://formatjs.io/docs/tooling/cli/#builtin-formatters)
 - [ ] Find a way to implement the workflow of FormatJS as [distribute-libraries](https://formatjs.io/docs/guides/distribute-libraries)
 - [ ] FormatJS implemnted on StoryBook stories to test it with different locale
 - [ ] Language and locale support aside the default locale EN
