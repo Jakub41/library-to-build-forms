@@ -4,9 +4,12 @@ import '@formatjs/intl-relativetimeformat/locale-data/en';
 import '@formatjs/intl-relativetimeformat/polyfill';
 
 function loadLocaleData(locale) {
+  console.log('locale', locale);
   switch (locale) {
+    case locale !== 'en':
+      return import(`./compiled-lang/${locale}.json`);
     default:
-      return import('../compiled-lang/en.json');
+      return import('./compiled-lang/en.json');
   }
 }
 

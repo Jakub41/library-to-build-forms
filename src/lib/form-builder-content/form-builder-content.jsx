@@ -3,7 +3,8 @@ import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 import { pdfjs } from 'react-pdf';
-import enMessages from '../../compiled-lang/en.json';
+import { getMessages } from '../../languages';
+//import enMessages from '../../compiled-lang/en.json';
 import emptyData from '../data/mockData.json';
 import roles from '../utils/defaultRoles';
 import useGetObjectValueOrDefault from '../utils/useGetValueOrDefault';
@@ -14,6 +15,14 @@ import styles from './form-builder-content.styles';
 import Section from './section';
 import theme from './theme/theme';
 import useBuilder, { builderReducer } from './useBuilder';
+
+async function bootstrapApplication() {
+  const [messages] = await Promise.all([getMessages()]);
+
+  ThemeContextFormBuilder({ ...messages });
+}
+
+bootstrapApplication();
 
 // Enable pdf loading
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -37,9 +46,14 @@ const FormBuilderContent = ({ data, dispatch, classes, signatureOptions }) => (
 
 const ThemedFormBuilder = withStyles(styles)(FormBuilderContent);
 
-const ThemeContextFormBuilder = ({ data, dispatch, signatureOptions }) => {
+const ThemeContextFormBuilder = ({
+  data,
+  dispatch,
+  signatureOptions,
+  messages,
+}) => {
   return (
-    <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+    <IntlProvider messages={messages} defaultLocale="en" locale="it">
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <ThemedFormBuilder

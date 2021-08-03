@@ -3,7 +3,8 @@
   "version": "0.6.54",
   "lang": "./src/compiled-lang",
   "supportedLocales": [
-    "en"
+    "en",
+    "it"
   ],
   "main": "build/index.js",
   "module": "build/index.js",

@@ -8,8 +8,10 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import HomeIcon from '@material-ui/icons/Home';
 import { withStyles } from '@material-ui/styles';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { IntlProvider } from 'react-intl';
 import { pdfjs } from 'react-pdf';
 import vhCheck from 'vh-check';
+import enMessages from '../../compiled-lang/en.json';
 import { blockTypes } from '../constants.js';
 import apiStyleSheet from '../data/mockApiStylesheet.json';
 import emptyData from '../data/mockData.json';
@@ -280,105 +282,109 @@ const FormBuilderPreview = ({
   }, [data]);
 
   return (
-    <ThemeProvider theme={previewTheme}>
-      <div className={classes.root}>
-        <Visible when={screen === screens.intro}>
-          <Intro form={data} onStart={hideIntro} />
-        </Visible>
-        <Visible
-          when={screen === screens.form || screen === screens.finalScreen}
-        >
-          <div className={classes.main}>
-            <Visible when={mode === modes.NONE || mode === modes.MESSENGER}>
-              <div className={classes.appBar}>
-                <div className={classes.appBarButtonContainer}>
-                  {AppBarButton}
-                </div>
-                <div className={classes.appBarHeaderContainer}>
-                  <Typography variant="h6" className={classes.title}>
-                    {title}
-                  </Typography>
-                </div>
-              </div>
-              <InfoNote
-                isOpen={isNoteOpen}
-                handleClose={handleNoteClose}
-                anchorEl={anchorEl}
-              />
-              <LinearProgress variant="determinate" value={progress} />
-            </Visible>
-            <Visible when={screen === screens.form}>
-              <Conversation
-                mode={mode}
-                setMode={setMode}
-                conversation={conversation}
-                onAddMessage={onAddMessage}
-                onViewConversation={onViewConversation}
-                openChooseQuote={handleSelectQuote}
-                subscribeQuoteChosen={subscribeQuoteChosen}
-              />
-            </Visible>
-            <Visible when={mode === modes.SELECTION}>
-              <SelectionWizard
-                isTextSelected={isTextSelected}
-                onClose={() => setMode(modes.NONE)}
-                onSelectionComplete={handleSelectionComplete}
-                onSkip={handleSkipSelection}
-              />
-            </Visible>
-            <Visible when={screen === screens.form}>
-              <div className={classes.subMain}>
-                <ViewWrapper
-                  previewTheme={previewTheme}
-                  initialValue={
-                    data.sections[currentSectionIndex].bodyWithExplanations
-                  }
-                  customClassName={'section-root'}
-                  isSelectionMode={mode === modes.SELECTION}
-                />
-                {data.sections[currentSectionIndex].blocks.map(
-                  (block, index) => {
-                    let sectionContainerStyles = {};
-                    const countOfBlocks =
-                      data.sections[currentSectionIndex].blocks.length;
-                    const isLastBlock = countOfBlocks - 1 === index;
-
-                    return (
-                      <div
-                        className={!isLastBlock ? sectionContainerStyles : null}
-                        key={block.previewId}
-                      >
-                        <SectionBlock
-                          block={block}
-                          onChange={onAnswer}
-                          currentUser={currentUser}
-                          readOnly={readOnly}
-                        />
-                      </div>
-                    );
-                  }
-                )}
-              </div>
-            </Visible>
-            <Visible when={screen === screens.finalScreen}>
-              <FinalScreen
-                signaturePage={signaturePage}
-                currentUser={currentUser}
-                onPdfDownload={onPdfDownload}
-              />
-            </Visible>
-          </div>
-          <Visible when={screen === screens.form}>
-            <div className={classes.footer}>{renderButtons()}</div>
+    <IntlProvider messages={enMessages} defaultLocale="en" locale="it">
+      <ThemeProvider theme={previewTheme}>
+        <div className={classes.root}>
+          <Visible when={screen === screens.intro}>
+            <Intro form={data} onStart={hideIntro} />
           </Visible>
-        </Visible>
-      </div>
-      <WarningDialog
-        isOpen={isWarningDialogOpen}
-        onClose={() => setIsWarningDialogOpen(false)}
-        onConfirm={handleConfirmSubmit}
-      />
-    </ThemeProvider>
+          <Visible
+            when={screen === screens.form || screen === screens.finalScreen}
+          >
+            <div className={classes.main}>
+              <Visible when={mode === modes.NONE || mode === modes.MESSENGER}>
+                <div className={classes.appBar}>
+                  <div className={classes.appBarButtonContainer}>
+                    {AppBarButton}
+                  </div>
+                  <div className={classes.appBarHeaderContainer}>
+                    <Typography variant="h6" className={classes.title}>
+                      {title}
+                    </Typography>
+                  </div>
+                </div>
+                <InfoNote
+                  isOpen={isNoteOpen}
+                  handleClose={handleNoteClose}
+                  anchorEl={anchorEl}
+                />
+                <LinearProgress variant="determinate" value={progress} />
+              </Visible>
+              <Visible when={screen === screens.form}>
+                <Conversation
+                  mode={mode}
+                  setMode={setMode}
+                  conversation={conversation}
+                  onAddMessage={onAddMessage}
+                  onViewConversation={onViewConversation}
+                  openChooseQuote={handleSelectQuote}
+                  subscribeQuoteChosen={subscribeQuoteChosen}
+                />
+              </Visible>
+              <Visible when={mode === modes.SELECTION}>
+                <SelectionWizard
+                  isTextSelected={isTextSelected}
+                  onClose={() => setMode(modes.NONE)}
+                  onSelectionComplete={handleSelectionComplete}
+                  onSkip={handleSkipSelection}
+                />
+              </Visible>
+              <Visible when={screen === screens.form}>
+                <div className={classes.subMain}>
+                  <ViewWrapper
+                    previewTheme={previewTheme}
+                    initialValue={
+                      data.sections[currentSectionIndex].bodyWithExplanations
+                    }
+                    customClassName={'section-root'}
+                    isSelectionMode={mode === modes.SELECTION}
+                  />
+                  {data.sections[currentSectionIndex].blocks.map(
+                    (block, index) => {
+                      let sectionContainerStyles = {};
+                      const countOfBlocks =
+                        data.sections[currentSectionIndex].blocks.length;
+                      const isLastBlock = countOfBlocks - 1 === index;
+
+                      return (
+                        <div
+                          className={
+                            !isLastBlock ? sectionContainerStyles : null
+                          }
+                          key={block.previewId}
+                        >
+                          <SectionBlock
+                            block={block}
+                            onChange={onAnswer}
+                            currentUser={currentUser}
+                            readOnly={readOnly}
+                          />
+                        </div>
+                      );
+                    }
+                  )}
+                </div>
+              </Visible>
+              <Visible when={screen === screens.finalScreen}>
+                <FinalScreen
+                  signaturePage={signaturePage}
+                  currentUser={currentUser}
+                  onPdfDownload={onPdfDownload}
+                />
+              </Visible>
+            </div>
+            <Visible when={screen === screens.form}>
+              <div className={classes.footer}>{renderButtons()}</div>
+            </Visible>
+          </Visible>
+        </div>
+        <WarningDialog
+          isOpen={isWarningDialogOpen}
+          onClose={() => setIsWarningDialogOpen(false)}
+          onConfirm={handleConfirmSubmit}
+        />
+      </ThemeProvider>
+    </IntlProvider>
   );
 };
 

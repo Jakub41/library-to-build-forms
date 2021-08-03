@@ -137,7 +137,7 @@ const ThemeContextFormBuilderGlossary = (props) => {
   const StyledFormBuilder = withStyles(styles)(FormBuilderGlossary);
 
   return (
-    <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+    <IntlProvider messages={enMessages} defaultLocale="en" locale="it">
       <ThemeProvider theme={theme}>
         <StyledFormBuilder {...props} />
       </ThemeProvider>
