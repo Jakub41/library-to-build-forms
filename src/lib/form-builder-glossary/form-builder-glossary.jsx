@@ -10,7 +10,8 @@ import Divider from '@material-ui/core/Divider';
 import { withStyles } from '@material-ui/styles';
 import React, { useCallback, useMemo } from 'react';
 import { IntlProvider } from 'react-intl';
-import enMessages from '../../compiled-lang/en.json';
+import { getMessages } from '../../languages';
+// import enMessages from '../../compiled-lang/en.json';
 import emptyForm from '../data/mockData.json';
 import useGetObjectValueOrDefault from '../utils/useGetValueOrDefault';
 import { cleanCopy, mapApiFormatToLocal } from '../utils/utils';
@@ -67,6 +68,14 @@ const FormBuilderGlossary = ({
   const handleAddNewGlossary = useCallback(() => {
     onAddNewGlossaryTerm();
   }, [onAddNewGlossaryTerm]);
+
+  const bootstrapApplication = async() => {
+    const [messages] = await Promise.all([getMessages()]);
+    console.log('NOTHING', messages);
+    ThemeContextFormBuilderGlossary(messages);
+  }
+  
+  bootstrapApplication();
 
   return (
     <>
@@ -133,11 +142,12 @@ const FormBuilderGlossary = ({
 
 FormBuilderGlossary.propTypes = FormBuilderGlossaryTypes;
 
-const ThemeContextFormBuilderGlossary = (props) => {
+const ThemeContextFormBuilderGlossary = (props, messages) => {
+  console.log('HEYOOOO', props.default);
   const StyledFormBuilder = withStyles(styles)(FormBuilderGlossary);
 
   return (
-    <IntlProvider messages={enMessages} defaultLocale="en" locale="it">
+    <IntlProvider messages={props.default} defaultLocale="en" locale="it">
       <ThemeProvider theme={theme}>
         <StyledFormBuilder {...props} />
       </ThemeProvider>

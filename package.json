@@ -33,6 +33,8 @@
     }
   },
   "dependencies": {
+    "@formatjs/intl-getcanonicallocales": "^1.7.1",
+    "@formatjs/intl-locale": "^2.4.34",
     "@formatjs/intl-pluralrules": "^4.1.0",
     "@formatjs/intl-relativetimeformat": "^9.2.0",
     "@toast-ui/react-editor": "^3.0.0",
@@ -54,7 +56,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -o ./dist/ -s public",
-    "languages:build": "yarn extract && yarn compile && rm -rf ./lang > /dev/null",
+    "languages:build": "yarn extract && yarn languages:pull && yarn compile:batch && rm -rf ./lang > /dev/null",
     "extract": "formatjs extract 'src/**/*.{ts,tsx,js,jsx}' --out-file lang/en.json --id-interpolation-pattern [sha512:contenthash:base64:6] --format transifex",
     "compile": "formatjs compile lang/en.json --ast --out-file src/compiled-lang/en.json transifex --format transifex",
     "compile:batch": "formatjs compile-folder --ast lang src/compiled-lang/ --format transifex",

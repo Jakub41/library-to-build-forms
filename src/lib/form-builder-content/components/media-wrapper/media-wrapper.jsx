@@ -6,8 +6,10 @@ import { BlockHeadingInput } from '../single-line-input/single-line-input';
 import TextInput from '../text-input/text-input';
 import styles from './media-wrapper.styles';
 import useDebounce from '../../hooks/useDebounce';
+import { useIntl } from 'react-intl';
 
 const MediaWrapper = ({ block, onChange, children, classes }) => {
+  const intl = useIntl();
   const { onChangeTitleHandle, handleEditorUpdate } =
     useQuestionDataChangeManager(block, onChange);
   const { value, setValueWithTarget } = useDebounce(block.title, 200, {
@@ -18,7 +20,7 @@ const MediaWrapper = ({ block, onChange, children, classes }) => {
     <Grid container direction="column" className={classes.root}>
       <Grid item className={classes.gridItemContainerForHead}>
         <BlockHeadingInput
-          label="Add heading"
+          label={intl.formatMessage({defaultMessage: 'Add heading'})}
           name="title"
           onChange={setValueWithTarget}
           value={value}

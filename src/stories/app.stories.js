@@ -1,7 +1,15 @@
 import { createTheme, ThemeProvider } from '@material-ui/core';
 import { IntlProvider } from 'react-intl';
-import enMessages from '../compiled-lang/en.json';
 import FormBuilder from '../form-builder';
+import { getMessages } from '../languages';
+
+async function bootstrapApplication() {
+  const [messages] = await Promise.all([getMessages()]);
+
+  FormApp({ ...messages });
+}
+
+bootstrapApplication();
 
 const defaultTheme = createTheme();
 
@@ -11,8 +19,8 @@ const config = {
 
 export default config;
 
-const FormApp = () => (
-  <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+const FormApp = ({ messages }) => (
+  <IntlProvider messages={messages} defaultLocale="en" locale="it">
     <ThemeProvider theme={defaultTheme}>
       <FormBuilder />
     </ThemeProvider>

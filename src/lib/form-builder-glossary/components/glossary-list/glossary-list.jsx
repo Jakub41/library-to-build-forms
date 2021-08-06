@@ -2,14 +2,11 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import GlossaryItem from '../glossary-item/glossary-item';
 import styles from './glossary-list.styles';
 
-const NO_GLOSSARY_TERMS = `Add terms by marking text from your form to the left,\n or clicking "Add new glossary term" above.`;
-
 const GlossaryList = ({ classes, items, onRemove, onEdit }) => {
-  const intl = useIntl();
   return (
     <div className={classes.root}>
       <Grid
@@ -48,10 +45,10 @@ const GlossaryList = ({ classes, items, onRemove, onEdit }) => {
           >
             <Grid item>
               <Typography className={classes.secondaryText} variant="h4">
-                {intl.formatMessage({ defaultMessage: 'No terms in glossary' })}
+                <FormattedMessage defaultMessage="No terms in glossary" />
               </Typography>
               <Typography className={classes.secondaryText} variant="body1">
-                {intl.formatMessage({ defaultMessage: NO_GLOSSARY_TERMS })}
+                <FormattedMessage defaultMessage="Add terms by marking text from your form to the left, or clicking 'Add new glossary term' above." />
               </Typography>
             </Grid>
           </Grid>

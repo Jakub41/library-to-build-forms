@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import styles from './context-menu.styles';
 
 const initialState = {
@@ -50,7 +50,7 @@ const ContextMenu = ({ classes, children, handleContextMenuClick }) => {
     <>
       <Grid item className={classes.header}>
         <Typography variant="h6">
-          {intl.formatMessage({ defaultMessage: 'Sections content' })}
+          <FormattedMessage defaultMessage="Sections content" />
         </Typography>
       </Grid>
       <div onContextMenu={handleClick} className={classes.root}>
@@ -71,7 +71,7 @@ const ContextMenu = ({ classes, children, handleContextMenuClick }) => {
         }
       >
         <MenuItem id="noContextMenu" name="highlight" onClick={handleHighLight}>
-          {intl.formatMessage({ defaultMessage: 'Add to glossary' })}
+          <FormattedMessage defaultMessage="Add to glossary" />
         </MenuItem>
       </Menu>
     </>

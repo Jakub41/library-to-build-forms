@@ -5,11 +5,14 @@ import React from 'react';
 import SectionMenu from '../section-menu';
 import { HeadingInput } from '../single-line-input/single-line-input';
 import styles from './page-header.styles';
+import { useIntl } from 'react-intl';
 
 const PageHeader = ({ section, index, onChange, onDelete, classes }) => {
   const onChangeTitleHandle = ({ target }) => {
     onChange({ ...section, [target.name]: target.value });
   };
+
+  const intl = useIntl();
 
   return (
     <Paper className={classes.root}>
@@ -32,7 +35,7 @@ const PageHeader = ({ section, index, onChange, onDelete, classes }) => {
         <Grid item className={classes.gridItemContainer}>
           <HeadingInput
             name="title"
-            label="Add heading"
+            label={intl.formatMessage({defaultMessage: 'Add heading'})}
             onChange={onChangeTitleHandle}
             value={section.title}
             isFocused={false}

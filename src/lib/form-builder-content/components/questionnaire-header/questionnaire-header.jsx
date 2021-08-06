@@ -3,7 +3,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/styles';
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 import useDebounce from '../../hooks/useDebounce';
 import InsertBlockDialog from '../../section/insert-block-dialog/insert-block-dialog';
 import modes from '../../section/insert-block-dialog/insert-block-dialog.static';
@@ -51,9 +51,7 @@ const QuestionnaireHeader = ({ data, dispatch, classes }) => {
             >
               <Grid item>
                 <Typography variant="overline">
-                  {intl.formatMessage({
-                    defaultMessage: 'Consent form title page',
-                  })}
+                  <FormattedMessage defaultMessage="Consent form title page" />
                 </Typography>
               </Grid>
               <Grid item>
@@ -68,9 +66,7 @@ const QuestionnaireHeader = ({ data, dispatch, classes }) => {
                   }
                   label={
                     <Typography noWrap>
-                      {intl.formatMessage({
-                        defaultMessage: 'Exclude table of contents',
-                      })}
+                      <FormattedMessage defaultMessage="Exclude table of contents" />
                     </Typography>
                   }
                   labelPlacement="end"
@@ -79,9 +75,7 @@ const QuestionnaireHeader = ({ data, dispatch, classes }) => {
             </Grid>
             <Grid item className={classes.gridItemContainer}>
               <QuestionnaireHeadingInput
-                label={intl.formatMessage({
-                  defaultMessage: 'Add heading',
-                })}
+                label={intl.formatMessage({defaultMessage: 'Add heading'})}
                 name="title"
                 onChange={setValueWithTarget}
                 value={value}

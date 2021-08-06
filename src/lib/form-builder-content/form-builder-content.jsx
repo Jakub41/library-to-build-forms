@@ -16,6 +16,10 @@ import Section from './section';
 import theme from './theme/theme';
 import useBuilder, { builderReducer } from './useBuilder';
 
+const errorReporter = (error) => {
+  console.log(error);
+};
+
 async function bootstrapApplication() {
   const [messages] = await Promise.all([getMessages()]);
 
@@ -53,7 +57,12 @@ const ThemeContextFormBuilder = ({
   messages,
 }) => {
   return (
-    <IntlProvider messages={messages} defaultLocale="en" locale="it">
+    <IntlProvider
+      messages={messages}
+      defaultLocale="en"
+      locale="it"
+      onError={errorReporter}
+    >
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <ThemedFormBuilder

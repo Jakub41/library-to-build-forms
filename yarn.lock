@@ -1550,6 +1550,13 @@
     "@formatjs/intl-localematcher" "0.2.18"
     tslib "^2.1.0"
 
+"@formatjs/intl-getcanonicallocales@1.7.1", "@formatjs/intl-getcanonicallocales@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.npmjs.org/@formatjs/intl-getcanonicallocales/-/intl-getcanonicallocales-1.7.1.tgz#dc3b353fa5ece03053320346f238be83d240d5f6"
+  integrity sha512-U+q2TNDn5LZataWFbo1vokRUgLYabUeVaSGietn22wr6ZR2O2gpMKiejoVBiyaWTDJYLckN581fsZYoJw59NMg==
+  dependencies:
+    tslib "^2.1.0"
+
 "@formatjs/intl-listformat@6.3.0":
   version "6.3.0"
   resolved "https://registry.npmjs.org/@formatjs/intl-listformat/-/intl-listformat-6.3.0.tgz#d64b8cb99050b74e7a2acf360e98b5a3d9f40f26"
@@ -1557,6 +1564,15 @@
   dependencies:
     "@formatjs/ecma402-abstract" "1.9.5"
     "@formatjs/intl-localematcher" "0.2.18"
+    tslib "^2.1.0"
+
+"@formatjs/intl-locale@^2.4.34":
+  version "2.4.34"
+  resolved "https://registry.npmjs.org/@formatjs/intl-locale/-/intl-locale-2.4.34.tgz#5be5f50b03c7e3f674a5109d1f97eef41ccc284c"
+  integrity sha512-IsjySVKvQ4w+QbPPX3l5iidE0PorLHdemvf/rIIYcgvDrw2hTaSQEocG7+C86B3wxxQgCIdVnbxYViCPXHG/Fw==
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.9.5"
+    "@formatjs/intl-getcanonicallocales" "1.7.1"
     tslib "^2.1.0"
 
 "@formatjs/intl-localematcher@0.2.18":
