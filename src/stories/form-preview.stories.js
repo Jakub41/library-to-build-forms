@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import JsonDiffReact from 'jsondiffpatch-for-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import enMessages from '../compiled-lang/en.json';
+import enMessages from '../lib/compiled-lang/en.json';
 import demoMockData from '../data/demo/mockData.json';
 import demoMockTheme from '../data/demo/mockTheme.json';
 import signaturesMockData from '../data/demo/signaturesMockData.json';

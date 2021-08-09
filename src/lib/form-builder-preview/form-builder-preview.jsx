@@ -9,13 +9,14 @@ import HomeIcon from '@material-ui/icons/Home';
 import { withStyles } from '@material-ui/styles';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import { pdfjs } from 'react-pdf';
+// import { pdfjs } from 'react-pdf';
 import vhCheck from 'vh-check';
-import enMessages from '../../compiled-lang/en.json';
+// import enMessages from '../../compiled-lang/en.json';
 import { blockTypes } from '../constants.js';
 import apiStyleSheet from '../data/mockApiStylesheet.json';
 import emptyData from '../data/mockData.json';
 import { previewActionTypes } from '../index.js';
+import { getMessages } from '../languages.js';
 import useGetObjectValueOrDefault from '../utils/useGetValueOrDefault';
 import {
   mapICFStyleSheetToLocalStyle,
@@ -45,7 +46,7 @@ import usePreview from './usePreview';
 const vh = vhCheck();
 
 // Enable pdf loading
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const FormBuilderPreview = ({
   initialData,
@@ -61,6 +62,7 @@ const FormBuilderPreview = ({
   onAddMessage,
   onViewConversation,
   onPdfDownload,
+  messages,
 }) => {
   const initData = useGetObjectValueOrDefault(initialData, emptyData);
   const currentTheme = useGetObjectValueOrDefault(theme, apiStyleSheet);
@@ -282,7 +284,7 @@ const FormBuilderPreview = ({
   }, [data]);
 
   return (
-    <IntlProvider messages={enMessages} defaultLocale="en" locale="it">
+    <IntlProvider messages={messages} defaultLocale="en" locale="it">
       <ThemeProvider theme={previewTheme}>
         <div className={classes.root}>
           <Visible when={screen === screens.intro}>

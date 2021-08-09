@@ -2,8 +2,8 @@ import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import { pdfjs } from 'react-pdf';
-import { getMessages } from '../../languages';
+// mport { pdfjs } from 'react-pdf';
+import { getMessages } from '../languages';
 //import enMessages from '../../compiled-lang/en.json';
 import emptyData from '../data/mockData.json';
 import roles from '../utils/defaultRoles';
@@ -29,7 +29,7 @@ async function bootstrapApplication() {
 bootstrapApplication();
 
 // Enable pdf loading
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const FormBuilderContent = ({ data, dispatch, classes, signatureOptions }) => (
   <div className={classes.container}>

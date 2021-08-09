@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@material-ui/core';
 import { useCallback, useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import enMessages from '../compiled-lang/en.json';
+import enMessages from '../lib/compiled-lang/en.json';
 import mockData from '../data/mockData.json';
 import { blockTypes } from '../lib/constants';
 import FormBuilderContent from '../lib/form-builder-content';

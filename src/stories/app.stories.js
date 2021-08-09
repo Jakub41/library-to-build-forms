@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from '@material-ui/core';
 import { IntlProvider } from 'react-intl';
 import FormBuilder from '../form-builder';
-import { getMessages } from '../languages';
+import { getMessages } from '../lib/languages';
 
 async function bootstrapApplication() {
   const [messages] = await Promise.all([getMessages()]);

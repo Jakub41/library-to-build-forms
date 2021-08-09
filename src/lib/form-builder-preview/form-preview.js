@@ -2,9 +2,18 @@ import { ThemeProvider, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import React from 'react';
 import { IntlProvider, useIntl } from 'react-intl';
-import enMessages from '../../compiled-lang/en.json';
+// import enMessages from './compiled-lang/en.json';
 import FormBuilderPreview from './form-builder-preview';
 import theme from './theme/theme';
+import { getMessages } from '../languages.js';
+
+async function bootstrapApplication() {
+  const [messages] = await Promise.all([getMessages()]);
+
+  ThemeContextFormPreview({ ...messages });
+}
+
+bootstrapApplication();
 
 const styles = () => ({
   errorMessage: {
@@ -28,11 +37,11 @@ const FormPreview = ({ classes, ...props }) => {
   return <FormBuilderPreview {...props} />;
 };
 
-const ThemeContextFormPreview = (props) => {
+const ThemeContextFormPreview = (props, messages) => {
   const StyledFormPreview = withStyles(styles)(FormPreview);
-
+  console.log(messages);
   return (
-    <IntlProvider messages={enMessages} defaultLocale="en" locale="en">
+    <IntlProvider messages={messages} defaultLocale="en" locale="it">
       <ThemeProvider theme={theme}>
         <StyledFormPreview {...props} />
       </ThemeProvider>

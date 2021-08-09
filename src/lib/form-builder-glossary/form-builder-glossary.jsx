@@ -10,7 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import { withStyles } from '@material-ui/styles';
 import React, { useCallback, useMemo } from 'react';
 import { IntlProvider } from 'react-intl';
-import { getMessages } from '../../languages';
+import { getMessages } from '../languages';
 // import enMessages from '../../compiled-lang/en.json';
 import emptyForm from '../data/mockData.json';
 import useGetObjectValueOrDefault from '../utils/useGetValueOrDefault';
