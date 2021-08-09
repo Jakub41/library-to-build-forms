@@ -143,11 +143,10 @@ const FormBuilderGlossary = ({
 FormBuilderGlossary.propTypes = FormBuilderGlossaryTypes;
 
 const ThemeContextFormBuilderGlossary = (props, messages) => {
-  console.log('HEYOOOO', props.default);
   const StyledFormBuilder = withStyles(styles)(FormBuilderGlossary);
 
   return (
-    <IntlProvider messages={props.default} defaultLocale="en" locale="it">
+    <IntlProvider messages={messages} defaultLocale="en" locale="it">
       <ThemeProvider theme={theme}>
         <StyledFormBuilder {...props} />
       </ThemeProvider>

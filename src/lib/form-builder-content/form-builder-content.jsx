@@ -22,8 +22,8 @@ const errorReporter = (error) => {
 
 async function bootstrapApplication() {
   const [messages] = await Promise.all([getMessages()]);
-
-  ThemeContextFormBuilder({ ...messages });
+  console.log('HERE', messages);
+  ThemeContextFormBuilder({ messages });
 }
 
 bootstrapApplication();
@@ -56,6 +56,7 @@ const ThemeContextFormBuilder = ({
   signatureOptions,
   messages,
 }) => {
+  console.log('MESSAGES', messages);
   return (
     <IntlProvider
       messages={messages}

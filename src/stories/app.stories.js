@@ -6,7 +6,7 @@ import { getMessages } from '../lib/languages';
 async function bootstrapApplication() {
   const [messages] = await Promise.all([getMessages()]);
 
-  FormApp({ ...messages });
+  FormApp({ messages });
 }
 
 bootstrapApplication();

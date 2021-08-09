@@ -39,7 +39,7 @@ const FormPreview = ({ classes, ...props }) => {
 
 const ThemeContextFormPreview = (props, messages) => {
   const StyledFormPreview = withStyles(styles)(FormPreview);
-  console.log(messages);
+  console.log('MESSAGES 2', messages);
   return (
     <IntlProvider messages={messages} defaultLocale="en" locale="it">
       <ThemeProvider theme={theme}>
