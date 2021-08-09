@@ -9,6 +9,11 @@
 
 ## Structure of the project
 
+**NOTE**
+
+The project builts from only `src/lib` and for this reason ignore the `src/App.js` and `src/index.js` as those files there are not even calle dby the library.
+You may see this clear checking the `package.json`.
+
 - The project is a collection of libraries under the `src/lib`.
 - Every folder is like a separate library and it's entry point is like `src/lib/<LIB_NAME>/<LIB_NAME.jsx>`.
 - FormatJS is added as `<IntlProvider messages={enMessages} defaultLocale="en" locale="en">` under every `src/lib/<LIB_NAME>/<LIB_NAME.jsx>`.
