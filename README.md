@@ -11,7 +11,7 @@
 
 **NOTE**
 
-The project builts from only `src/lib` and for this reason ignore the `src/App.js` and `src/index.js` as those files there are not even calle dby the library.
+The project builts from only `src/lib` and for this reason ignore the `src/App.js` and `src/index.js` as those files there are not even called by the library.
 You may see this clear checking the `package.json`.
 
 - The project is a collection of libraries under the `src/lib`.
