@@ -47,7 +47,7 @@ The project doesn't start with `yarn start` above instruction are the way!
 
 ## To do
 
-- [] Improve the builder and previwer to expose pages of the form to external to allow interaction or routing to specific page number
+- [ ] Improve the builder and previwer to expose pages of the form to external to allow interaction or routing to specific page number
 - [x] Use [transifex](https://www.transifex.com/) as translate vendor for Formatjs and apply the CLI [#builtin-formatters](https://formatjs.io/docs/tooling/cli/#builtin-formatters)
 - [ ] Find a way to implement the workflow of FormatJS as [distribute-libraries](https://formatjs.io/docs/guides/distribute-libraries)
 - [ ] FormatJS implemnted on StoryBook stories to test it with different locale
