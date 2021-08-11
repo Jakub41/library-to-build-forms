@@ -34,6 +34,12 @@ The project doesn't start with `yarn start` above instruction are the way!
 
 ## Known Issues
 
+*The form builder and previwer:*
+
+- There is no way right now to interact with the form pages in case an external App wants to route to a page number or interact with one of the pages
+
+*FormatJS:*
+
 - FormatJS was implemnted as minimum working implemntation but that not optimal
 - FormatJS is not fully implemnted as at this time there are issues on passing dynamically the messages (E.G. the project should support more localse and change the messages based on it like now we have EN as default but if I change to IT I shuld see the messages in Italian)
 - FormatJS implemnted on StoryBook stories in that way I can pass a different locale and see the text in that locale, so I can test StoryBook stories with the required locale aside from the default EN
@@ -41,6 +47,7 @@ The project doesn't start with `yarn start` above instruction are the way!
 
 ## To do
 
+- [] Improve the builder and previwer to expose pages of the form to external to allow interaction or routing to specific page number
 - [x] Use [transifex](https://www.transifex.com/) as translate vendor for Formatjs and apply the CLI [#builtin-formatters](https://formatjs.io/docs/tooling/cli/#builtin-formatters)
 - [ ] Find a way to implement the workflow of FormatJS as [distribute-libraries](https://formatjs.io/docs/guides/distribute-libraries)
 - [ ] FormatJS implemnted on StoryBook stories to test it with different locale
