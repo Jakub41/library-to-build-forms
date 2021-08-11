@@ -10,7 +10,7 @@ import { getMessages } from '../languages.js';
 async function bootstrapApplication() {
   const [messages] = await Promise.all([getMessages()]);
 
-  ThemeContextFormPreview({ ...messages });
+  ThemeContextFormPreview({ messages });
 }
 
 bootstrapApplication();
@@ -37,11 +37,11 @@ const FormPreview = ({ classes, ...props }) => {
   return <FormBuilderPreview {...props} />;
 };
 
-const ThemeContextFormPreview = (props, messages) => {
+const ThemeContextFormPreview = (props) => {
   const StyledFormPreview = withStyles(styles)(FormPreview);
-  console.log('MESSAGES 2', messages);
+  console.log('MESSAGES 2', props.messages);
   return (
-    <IntlProvider messages={messages} defaultLocale="en" locale="it">
+    <IntlProvider messages={props.messages} defaultLocale="en" locale="it">
       <ThemeProvider theme={theme}>
         <StyledFormPreview {...props} />
       </ThemeProvider>
