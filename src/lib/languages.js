@@ -7,7 +7,7 @@ import '@formatjs/intl-relativetimeformat/polyfill';
 import '@formatjs/intl-relativetimeformat/locale-data/en';
 import '@formatjs/intl-relativetimeformat/locale-data/it';
 
-function loadLocaleData(locale) {
+async function loadLocaleData(locale) {
   console.log('locale', locale);
   if (locale !== 'en') return import(`./compiled-lang/${locale}.json`);
   return import('./compiled-lang/en.json');
@@ -19,7 +19,7 @@ export const getLanguage = () =>
   navigator.userLanguage ||
   'en';
 
-export const getMessages = (ln = getLanguage()) => {
+export const getMessages = async (ln = getLanguage()) => {
   const lang = ln.toLowerCase().split(/[_-]+/)[0];
 
   return loadLocaleData(lang);

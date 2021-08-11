@@ -1,6 +1,6 @@
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 // mport { pdfjs } from 'react-pdf';
 import { getMessages } from '../languages';
@@ -19,14 +19,6 @@ import useBuilder, { builderReducer } from './useBuilder';
 const errorReporter = (error) => {
   console.log(error);
 };
-
-async function bootstrapApplication() {
-  const [messages] = await Promise.all([getMessages()]);
-  console.log('HERE', messages);
-  ThemeContextFormBuilder({ messages });
-}
-
-bootstrapApplication();
 
 // Enable pdf loading
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -54,9 +46,11 @@ const ThemeContextFormBuilder = ({
   data,
   dispatch,
   signatureOptions,
-  messages,
 }) => {
-  console.log('MESSAGES', messages);
+  const [messages, setMessages] = useState({})
+  useEffect(async () => {
+    setMessages(await getMessages('it'));
+  }, [setMessages])
   return (
     <IntlProvider
       messages={messages}
